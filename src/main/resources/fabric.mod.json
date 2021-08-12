@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "wzry",
+  "version": "${version}",
+  "name": "Wzry",
+  "description": "",
+  "authors": [
+    "LittleLito"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/wzry/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.littlelito.wzry.wzry.Wzry"
+    ]
+  },
+  "mixins": [
+    "wzry.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.11.6",
+    "fabric": "*",
+    "minecraft": "1.16.5"
+  }
+}
