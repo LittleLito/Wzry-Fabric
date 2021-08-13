@@ -1,5 +1,6 @@
 package com.littlelito.wzry.mixin;
 
+import com.littlelito.wzry.item.PoJun;
 import com.littlelito.wzry.item.WuJinZhanRen;
 import com.littlelito.wzry.item.WzrySwordItem;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -74,10 +75,14 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             System.out.println(f);
             float critRate = 0F;
             float critEffect = 2.0F;
+
             for (ItemStack itemStack: getHotBar()) {
                 Item item = itemStack.getItem();
                 if (item instanceof WzrySwordItem) {
                     critRate += ((WzrySwordItem) item).getCritRate();
+                    if (item instanceof PoJun) {
+                        f = ((PoJun) item).passiveSkill(target, f);
+                    }
                     if (item instanceof WuJinZhanRen) {
                         critEffect = ((WuJinZhanRen) item).passiveSkill(critEffect);
                     }

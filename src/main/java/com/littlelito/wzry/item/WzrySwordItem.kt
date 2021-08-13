@@ -10,4 +10,5 @@ open class WzrySwordItem(material: ToolMaterial,
                          val attackDamage: Int = 0,
                          val attackSpeed: Float = 0F,
 ):
-    SwordItem(material, attackDamage, attackSpeed, settings.maxCount(1))
+    SwordItem(material, attackDamage, attackSpeed, settings.maxCount(1)) {
+}

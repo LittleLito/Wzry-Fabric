@@ -4,6 +4,8 @@
   "package": "com.littlelito.wzry.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "DamageUtilMixin",
+    "EntityAttributesMixin",
     "PlayerEntityMixin"
   ],
   "client": [
