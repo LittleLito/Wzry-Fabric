@@ -15,9 +15,7 @@ import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
+import net.minecraft.item.*;
 import net.minecraft.network.packet.s2c.play.EntityVelocityUpdateS2CPacket;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -72,14 +70,22 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             float f = (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
 
             // passive skills
-            System.out.println(f);
+
             float critRate = 0F;
             float critEffect = 2.0F;
+            ItemStack mainHandItemStack = this.getMainHandStack();
 
             for (ItemStack itemStack: getHotBar()) {
                 Item item = itemStack.getItem();
+                if (item instanceof ToolItem && !itemStack.equals(mainHandItemStack)) {
+                    if (item instanceof SwordItem) {f += ((SwordItem) item).getAttackDamage();}
+                    if (item instanceof MiningToolItem) {f += ((MiningToolItem) item).getAttackDamage();}
+                }
+
                 if (item instanceof WzrySwordItem) {
                     critRate += ((WzrySwordItem) item).getCritRate();
+
+                    // passive skills
                     if (item instanceof PoJun) {
                         f = ((PoJun) item).passiveSkill(target, f);
                     }
@@ -88,15 +94,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                     }
                 }
             }
-            System.out.println(critRate);
-            System.out.println(critEffect);
             // crit
             if (critRate > Math.random()) {
-                System.out.println(true);
                 f *= critEffect;
-                System.out.println(f);
-            } else System.out.println(false);
-            System.out.println(f);
+            }
 
             float h;
             if (target instanceof LivingEntity) {
@@ -106,6 +107,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
             }
 
             float i = this.getAttackCooldownProgress(0.5F);
+            System.out.println(i);
             f *= 0.2F + i * i * 0.8F;
             h *= i;
             this.resetLastAttackedTicks();

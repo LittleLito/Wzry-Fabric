@@ -1,4 +1,10 @@
 {
+  "itemGroup.wzry.attack_item_group": "Attack Weapon",
+
   "item.wzry.wujinzhanren": "WuJinZhanRen",
-  "item.wzry.pojun": "PoJun"
+  "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
+  "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",
+
+  "item.wzry.pojun": "PoJun",
+  "item.wzry.pojun.tooltip.description": "Deal additional 30% damage to targets whose HP is less than 50%"
 }
