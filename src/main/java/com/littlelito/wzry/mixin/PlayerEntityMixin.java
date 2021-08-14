@@ -94,8 +94,6 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         if (!target.handleAttack(this)) {
             float f = (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
 
-            // passive skills
-
             float critRate = 0F;
             float critEffect = 2.0F;
 

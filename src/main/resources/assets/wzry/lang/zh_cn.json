@@ -1,6 +1,9 @@
 {
   "itemGroup.wzry.attack_item_group": "攻击装备",
+
   "item.wzry.tiejian": "铁剑",
+
+  "item.wzry.fengbaojujian": "风暴巨剑",
 
   "item.wzry.wujinzhanren": "无尽战刃",
   "item.wzry.wujinzhanren.tooltip.properties": "+20%暴击率",

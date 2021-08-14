@@ -13,6 +13,7 @@ public class WzryItems {
             .icon(() -> new ItemStack(WzryItems.WUJINZHANREN))
             .appendItems(itemStacks -> {
                 itemStacks.add(new ItemStack(WzryItems.TIEJIAN));
+                itemStacks.add(new ItemStack(WzryItems.FENGBAOJUJIAN));
                 itemStacks.add(new ItemStack(WzryItems.WUJINZHANREN));
                 itemStacks.add(new ItemStack(WzryItems.POJUN));
             })
@@ -20,6 +21,9 @@ public class WzryItems {
 
     // COMMON
     public static final Item TIEJIAN = new TieJian();
+
+    // UNCOMMON
+    public static final Item FENGBAOJUJIAN = new FengBaoJuJian();
 
     // RARE
     public static final Item WUJINZHANREN = new WuJinZhanRen();

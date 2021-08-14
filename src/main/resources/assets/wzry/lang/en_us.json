@@ -3,6 +3,8 @@
 
   "item.wzry.tiejian": "TieJian",
 
+  "item.wzry.fengbaojujian": "FengBaoJuJian",
+
   "item.wzry.wujinzhanren": "WuJinZhanRen",
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
   "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",

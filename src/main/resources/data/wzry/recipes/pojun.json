@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " WO",
+    "WOW",
+    "XW "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:diamond"
+    },
+    "O": {
+      "item": "wzry:fengbaojujian"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "wzry:pojun",
+    "count": 1
+  }
+}

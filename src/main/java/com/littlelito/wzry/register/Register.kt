@@ -13,6 +13,12 @@ class Register {
             Identifier("wzry", "tiejian"),
             WzryItems.TIEJIAN)
 
+        // UNCOMMON
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "fengbaojujian"),
+            WzryItems.FENGBAOJUJIAN
+        )
+
         // RARE
         Registry.register(Registry.ITEM,
             Identifier("wzry", "wujinzhanren"),

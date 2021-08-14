@@ -5,6 +5,7 @@ import net.minecraft.item.Items
 
 class WzryWeaponMaterials {
 
+    // COMMON
     val TIEJIAN = WzryWeaponMaterial(
         50,
         2F,
@@ -14,6 +15,17 @@ class WzryWeaponMaterials {
         Items.OAK_PLANKS
     )
 
+    // UNCOMMON
+    val FENGBAOJUJIAN = WzryWeaponMaterial(
+        100,
+        3F,
+        8F,
+        1,
+        8,
+        Items.OAK_PLANKS
+    )
+
+    // RARE
     val WUJINZHANREN = WzryWeaponMaterial(
         150,
         5F,
