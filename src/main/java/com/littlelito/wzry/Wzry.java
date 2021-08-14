@@ -1,4 +1,4 @@
-package com.littlelito.wzry.wzry;
+package com.littlelito.wzry;
 
 import com.littlelito.wzry.register.Register;
 import net.fabricmc.api.ModInitializer;

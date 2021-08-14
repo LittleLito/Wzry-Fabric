@@ -12,11 +12,16 @@ public class WzryItems {
             new Identifier("wzry", "attack_item_group"))
             .icon(() -> new ItemStack(WzryItems.WUJINZHANREN))
             .appendItems(itemStacks -> {
+                itemStacks.add(new ItemStack(WzryItems.TIEJIAN));
                 itemStacks.add(new ItemStack(WzryItems.WUJINZHANREN));
                 itemStacks.add(new ItemStack(WzryItems.POJUN));
             })
             .build();
 
+    // COMMON
+    public static final Item TIEJIAN = new TieJian();
+
+    // RARE
     public static final Item WUJINZHANREN = new WuJinZhanRen();
     public static final Item POJUN = new PoJun();
 }

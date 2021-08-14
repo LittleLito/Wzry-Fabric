@@ -5,6 +5,15 @@ import net.minecraft.item.Items
 
 class WzryWeaponMaterials {
 
+    val TIEJIAN = WzryWeaponMaterial(
+        50,
+        2F,
+        2F,
+        1,
+        3,
+        Items.OAK_PLANKS
+    )
+
     val WUJINZHANREN = WzryWeaponMaterial(
         150,
         5F,

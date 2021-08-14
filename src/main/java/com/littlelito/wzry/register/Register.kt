@@ -7,6 +7,13 @@ import net.minecraft.util.registry.Registry
 class Register {
 
     fun register() {
+
+        // COMMON
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "tiejian"),
+            WzryItems.TIEJIAN)
+
+        // RARE
         Registry.register(Registry.ITEM,
             Identifier("wzry", "wujinzhanren"),
             WzryItems.WUJINZHANREN)

@@ -2,12 +2,10 @@ package com.littlelito.wzry.mixin;
 
 import com.littlelito.wzry.item.PoJun;
 import com.littlelito.wzry.item.WuJinZhanRen;
+import com.littlelito.wzry.item.WzryAxeItem;
 import com.littlelito.wzry.item.WzrySwordItem;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityGroup;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
@@ -39,8 +37,6 @@ import java.util.List;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
 
-    @Shadow public abstract float getAttackCooldownProgress(float baseTime);
-
     @Shadow public abstract void resetLastAttackedTicks();
 
     @Shadow public abstract void spawnSweepAttackParticles();
@@ -55,8 +51,37 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     @Shadow @Final public PlayerInventory inventory;
 
+    @Shadow public abstract float getAttackCooldownProgress(float baseTime);
+
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    /**
+     * @author Bugjang
+     */
+    @Overwrite
+    public float getAttackCooldownProgressPerTick() {
+        boolean hasWzry = false;
+        double attackSpeed = this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED);
+
+        for (ItemStack itemStack: getHotBar()) {
+            Item item = itemStack.getItem();
+            if ((item instanceof WzrySwordItem || item instanceof WzryAxeItem)) {
+                hasWzry = true;
+                if (!itemStack.equals(this.getMainHandStack())) {
+                    if (item instanceof WzrySwordItem) {
+                        attackSpeed += ((WzrySwordItem) item).getAttackSpeed() + 4;
+                    } if (item instanceof WzryAxeItem) {
+                        attackSpeed += ((WzryAxeItem) item).getAttackSpeed() + 4;
+                    }
+                }
+            }
+        }
+        if (!(this.getMainHandStack().getItem() instanceof ToolItem) || !hasWzry) {
+            attackSpeed -= this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED);
+        }
+        return (float)(1.0D / attackSpeed * 20.0D);
     }
 
     /**
@@ -73,11 +98,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
             float critRate = 0F;
             float critEffect = 2.0F;
-            ItemStack mainHandItemStack = this.getMainHandStack();
 
             for (ItemStack itemStack: getHotBar()) {
                 Item item = itemStack.getItem();
-                if (item instanceof ToolItem && !itemStack.equals(mainHandItemStack)) {
+                if (item instanceof ToolItem && !itemStack.equals(this.getMainHandStack())) {
                     if (item instanceof SwordItem) {f += ((SwordItem) item).getAttackDamage();}
                     if (item instanceof MiningToolItem) {f += ((MiningToolItem) item).getAttackDamage();}
                 }
@@ -106,8 +130,7 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 h = EnchantmentHelper.getAttackDamage(this.getMainHandStack(), EntityGroup.DEFAULT);
             }
 
-            float i = this.getAttackCooldownProgress(0.5F);
-            System.out.println(i);
+            float i = this.getAttackCooldownProgress(0.3F);
             f *= 0.2F + i * i * 0.8F;
             h *= i;
             this.resetLastAttackedTicks();

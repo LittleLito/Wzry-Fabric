@@ -1,6 +1,8 @@
 {
   "itemGroup.wzry.attack_item_group": "Attack Weapon",
 
+  "item.wzry.tiejian": "TieJian",
+
   "item.wzry.wujinzhanren": "WuJinZhanRen",
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
   "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",

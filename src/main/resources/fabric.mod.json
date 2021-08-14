@@ -5,7 +5,11 @@
   "name": "Wzry",
   "description": "",
   "authors": [
-    "LittleLito"
+    "LittleLito",
+    "zzh1231",
+    "zyc",
+    "mct",
+    "TUDOU"
   ],
   "contact": {},
   "license": "MIT",
@@ -13,7 +17,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.littlelito.wzry.wzry.Wzry"
+      "com.littlelito.wzry.Wzry"
     ]
   },
   "mixins": [

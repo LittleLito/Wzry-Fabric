@@ -15,7 +15,7 @@ class PoJun: WzrySwordItem(
     0F,
     0F,
     0,
-    0F
+    -3.8F
 ) {
     override fun appendTooltip(
         stack: ItemStack?,
