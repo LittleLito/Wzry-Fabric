@@ -7,6 +7,7 @@ class WzryAxeItem(material: ToolMaterial,
                   settings: Settings,
                   attackDamage: Float,
                   val attackSpeed: Float,
+                  val attackSpeedPercentage: Float
                   ) :
     AxeItem(material, attackDamage, attackSpeed, settings.maxCount(1)) {
 }

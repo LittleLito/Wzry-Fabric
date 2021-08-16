@@ -21,6 +21,8 @@ public class WzryItems {
 
     // COMMON
     public static final Item TIEJIAN = new TieJian();
+    public static final Item LEIMINGREN = new LeiMingRen();
+    public static final Item BISHOU = new BiShou();
 
     // UNCOMMON
     public static final Item FENGBAOJUJIAN = new FengBaoJuJian();
@@ -28,4 +30,6 @@ public class WzryItems {
     // RARE
     public static final Item WUJINZHANREN = new WuJinZhanRen();
     public static final Item POJUN = new PoJun();
+    public static final Item MINGDAOSIMING = new MingDaoSiMing();
+    public static final Item POSUIMINGDAO = new Item(new Item.Settings());
 }

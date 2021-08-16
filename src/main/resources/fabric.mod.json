@@ -18,6 +18,9 @@
   "entrypoints": {
     "main": [
       "com.littlelito.wzry.Wzry"
+    ],
+    "client": [
+      "com.littlelito.wzry.client.ClientWzry"
     ]
   },
   "mixins": [

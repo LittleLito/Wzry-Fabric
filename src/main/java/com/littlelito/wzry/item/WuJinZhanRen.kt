@@ -13,7 +13,9 @@ class WuJinZhanRen: WzrySwordItem(
     0.2F,
     0F,
     0,
-    -3.8F) {
+    -3.8F,
+    0F
+) {
 
     override fun appendTooltip(
         stack: ItemStack,

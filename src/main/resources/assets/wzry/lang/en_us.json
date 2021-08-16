@@ -2,6 +2,9 @@
   "itemGroup.wzry.attack_item_group": "Attack Weapon",
 
   "item.wzry.tiejian": "TieJian",
+  "item.wzry.leimingren": "LeiMingRen",
+  "item.wzry.bishou": "BiShou",
+  "item.wzry.bishou.tooltip.properties": "+10% attack speed",
 
   "item.wzry.fengbaojujian": "FengBaoJuJian",
 
@@ -10,5 +13,9 @@
   "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",
 
   "item.wzry.pojun": "PoJun",
-  "item.wzry.pojun.tooltip.description": "Deal additional 30% damage to targets whose HP is less than 50%"
+  "item.wzry.pojun.tooltip.description": "Deal additional 30% damage to targets whose HP is less than 50%",
+
+  "item.wzry.mingdaosiming": "MingDaoSiMing",
+  "item.wzry.mingdaosiming.tooltip.description": "Being invincible for 1.5s and gain 60% movement speed increase when receiving deadly damage, ",
+  "item.wzry.posuimingdao": ""
 }

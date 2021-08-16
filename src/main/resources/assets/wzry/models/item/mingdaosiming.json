@@ -1,0 +1,18 @@
+{
+  "parent": "item/handheld",
+
+  "overrides": [
+    {
+      "predicate": {
+        "active": 0
+      },
+      "model": "wzry:item/mingdaosiming_not_active"
+    },
+    {
+      "predicate": {
+        "active": 1
+      },
+      "model": "wzry:item/mingdaosiming_active"
+    }
+  ]
+}

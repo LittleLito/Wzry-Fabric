@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "  O",
+    "OW ",
+    "XO "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "minecraft:iron_ingot"
+    },
+    "W": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "wzry:leimingren",
+    "count": 1
+  }
+}

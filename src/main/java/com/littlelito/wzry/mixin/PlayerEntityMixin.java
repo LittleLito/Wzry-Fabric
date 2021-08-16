@@ -59,11 +59,13 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public float getAttackCooldownProgressPerTick() {
         boolean hasWzry = false;
         double attackSpeed = this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED);
+        float attackSpeedPercentage = 0F;
 
         for (ItemStack itemStack: getHotBar()) {
             Item item = itemStack.getItem();
@@ -72,8 +74,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
                 if (!itemStack.equals(this.getMainHandStack())) {
                     if (item instanceof WzrySwordItem) {
                         attackSpeed += ((WzrySwordItem) item).getAttackSpeed() + 4;
+                        attackSpeedPercentage += ((WzrySwordItem) item).getAttackSpeedPercentage();
                     } if (item instanceof WzryAxeItem) {
                         attackSpeed += ((WzryAxeItem) item).getAttackSpeed() + 4;
+                        attackSpeedPercentage += ((WzryAxeItem) item).getAttackSpeedPercentage();
                     }
                 }
             }
@@ -81,6 +85,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
         if (!(this.getMainHandStack().getItem() instanceof ToolItem) || !hasWzry) {
             attackSpeed -= this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED);
         }
+
+        attackSpeed = attackSpeed * (attackSpeedPercentage + 1);
         return (float)(1.0D / attackSpeed * 20.0D);
     }
 
@@ -281,10 +287,8 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 
         }
     }
-}
-
-
-    private DefaultedList<ItemStack> getHotBar() {
+    }
+    DefaultedList<ItemStack> getHotBar() {
         DefaultedList<ItemStack> playerInventory = this.inventory.main;
         DefaultedList<ItemStack> playerHotBar = DefaultedList.of();
         for (int i=0;i<9;i++) {

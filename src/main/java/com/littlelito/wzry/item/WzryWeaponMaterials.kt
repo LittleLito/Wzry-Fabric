@@ -1,6 +1,5 @@
 package com.littlelito.wzry.item
 
-import net.minecraft.item.Item
 import net.minecraft.item.Items
 
 class WzryWeaponMaterials {
@@ -12,7 +11,23 @@ class WzryWeaponMaterials {
         2F,
         1,
         3,
-        Items.OAK_PLANKS
+        Items.IRON_INGOT
+    )
+    val LEIMINGREN = WzryWeaponMaterial(
+        80,
+        2.5F,
+        4F,
+        2,
+        5,
+        Items.IRON_INGOT
+    )
+    val BISHOU = WzryWeaponMaterial(
+        50,
+        2F,
+        0F,
+        1,
+        5,
+        Items.IRON_INGOT
     )
 
     // UNCOMMON
@@ -22,8 +37,9 @@ class WzryWeaponMaterials {
         8F,
         1,
         8,
-        Items.OAK_PLANKS
+        Items.IRON_BLOCK
     )
+
 
     // RARE
     val WUJINZHANREN = WzryWeaponMaterial(
@@ -41,5 +57,14 @@ class WzryWeaponMaterials {
         3,
         10,
         Items.OAK_PLANKS
+    )
+    val MINGDAOSIMING =WzryWeaponMaterial(
+        50,
+        1F,
+        6F,
+        1,
+        5,
+        Items.OAK_PLANKS
+
     )
 }

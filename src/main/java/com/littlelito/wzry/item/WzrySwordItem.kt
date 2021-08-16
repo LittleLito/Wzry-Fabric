@@ -9,6 +9,7 @@ open class WzrySwordItem(material: ToolMaterial,
                          val penetration: Float = 0F,
                          val attackDamage: Int = 0,
                          val attackSpeed: Float = 0F,
+                         val attackSpeedPercentage: Float = 0F
 ):
     SwordItem(material, attackDamage, attackSpeed, settings.maxCount(1)) {
 }

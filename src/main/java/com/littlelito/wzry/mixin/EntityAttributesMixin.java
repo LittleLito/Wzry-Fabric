@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class EntityAttributesMixin {
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     private static EntityAttribute register(String id, EntityAttribute attribute) {

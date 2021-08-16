@@ -1,6 +1,5 @@
 package com.littlelito.wzry.item
 
-import net.minecraft.item.ToolMaterial
 import net.minecraft.util.Rarity
 
 class FengBaoJuJian: WzrySwordItem(
@@ -8,5 +7,6 @@ class FengBaoJuJian: WzrySwordItem(
     0F,
     0F,
     0,
-    -3.8F) {
+    -3.9F,
+    0F) {
 }

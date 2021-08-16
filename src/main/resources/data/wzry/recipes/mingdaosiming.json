@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " WO",
+    "WD ",
+    "XW "
+  ],
+  "key": {
+    "D": {
+      "item": "minecraft:diamond"
+    },
+    "O": {
+      "item": "wzry:leimingren"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "wzry:tiejian"
+    }
+  },
+  "result": {
+    "item": "wzry:mingdaosiming",
+    "count": 1
+  }
+}

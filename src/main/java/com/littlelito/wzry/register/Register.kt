@@ -12,6 +12,13 @@ class Register {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "tiejian"),
             WzryItems.TIEJIAN)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "leimingren"),
+            WzryItems.LEIMINGREN)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "bishou"),
+            WzryItems.BISHOU)
+
 
         // UNCOMMON
         Registry.register(Registry.ITEM,
@@ -26,5 +33,12 @@ class Register {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "pojun"),
             WzryItems.POJUN)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "mingdaosiming"),
+            WzryItems.MINGDAOSIMING
+        )
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "posuimingdao"),
+            WzryItems.POSUIMINGDAO)
     }
 }

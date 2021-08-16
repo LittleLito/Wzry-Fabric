@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 public class DamageUtilMixin {
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public static float getDamageLeft(float damage, float armor, float armorToughness) {

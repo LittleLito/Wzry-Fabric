@@ -2,6 +2,9 @@
   "itemGroup.wzry.attack_item_group": "攻击装备",
 
   "item.wzry.tiejian": "铁剑",
+  "item.wzry.leimingren": "雷鸣刃",
+  "item.wzry.bishou": "匕首",
+  "item.wzry.bishou.tooltip.properties": "+10%攻速",
 
   "item.wzry.fengbaojujian": "风暴巨剑",
 
@@ -10,6 +13,10 @@
   "item.wzry.wujinzhanren.tooltip.description": "+40%暴击效果",
 
   "item.wzry.pojun": "破军",
-  "item.wzry.pojun.tooltip.description": "对生命值低于50%的目标造成额外30%伤害"
+  "item.wzry.pojun.tooltip.description": "对生命值低于50%的目标造成额外30%伤害",
+
+  "item.wzry.mingdaosiming": "名刀-司命",
+  "item.wzry.mingdaosiming.tooltip.description": "受到致命伤害时短暂无敌1.5秒，并获得60%移速提升",
+  "item.wzry.posuimingdao": ""
 
 }
