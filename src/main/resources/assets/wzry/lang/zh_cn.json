@@ -6,7 +6,13 @@
   "item.wzry.bishou": "匕首",
   "item.wzry.bishou.tooltip.properties": "+10%攻速",
 
+
   "item.wzry.fengbaojujian": "风暴巨剑",
+
+  "item.wzry.sujizhiqiang": "速击之枪",
+  "item.wzry.sujizhiqiang.tooltip.properties": "+25%攻速",
+  "item.wzry.sujizhiqiang.tooltip.description": "攻击力提升3点（使用远程武器效果翻倍）",
+
 
   "item.wzry.wujinzhanren": "无尽战刃",
   "item.wzry.wujinzhanren.tooltip.properties": "+20%暴击率",

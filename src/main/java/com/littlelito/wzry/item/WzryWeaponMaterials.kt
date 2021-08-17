@@ -39,6 +39,14 @@ class WzryWeaponMaterials {
         8,
         Items.IRON_BLOCK
     )
+    val SUJIZHIQIANG = WzryWeaponMaterial(
+        100,
+        3F,
+        0F,
+        3,
+        15,
+        Items.EMERALD
+    )
 
 
     // RARE

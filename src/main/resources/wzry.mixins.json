@@ -8,6 +8,7 @@
     "DamageUtilMixin",
     "EntityAttributesMixin",
     "LivingEntityMixin",
+    "PersistentProjectileEntityMixin",
     "PlayerEntityMixin"
   ],
   "client": [

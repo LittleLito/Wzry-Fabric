@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " WO",
+    " XW",
+    "X  "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "minecraft:iron_ingot"
+    },
+    "W": {
+      "item": "wzry:bishou"
+    }
+  },
+  "result": {
+    "item": "wzry:sujizhiqiang",
+    "count": 1
+  }
+}

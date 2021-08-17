@@ -6,7 +6,13 @@
   "item.wzry.bishou": "BiShou",
   "item.wzry.bishou.tooltip.properties": "+10% attack speed",
 
+
   "item.wzry.fengbaojujian": "FengBaoJuJian",
+
+  "item.wzry.sujizhiqiang": "SuJiZhiQiang",
+  "item.wzry.sujizhiqiang.tooltip.properties": "+25% attack speed",
+  "item.wzry.sujizhiqiang.tooltip.description": "Increase attack damage by 3 points (double the effect while using long-range weapons)",
+
 
   "item.wzry.wujinzhanren": "WuJinZhanRen",
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",

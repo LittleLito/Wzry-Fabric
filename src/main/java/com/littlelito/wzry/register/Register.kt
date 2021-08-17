@@ -23,8 +23,10 @@ class Register {
         // UNCOMMON
         Registry.register(Registry.ITEM,
             Identifier("wzry", "fengbaojujian"),
-            WzryItems.FENGBAOJUJIAN
-        )
+            WzryItems.FENGBAOJUJIAN)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "sujizhiqiang"),
+            WzryItems.SUJIZHIQIANG)
 
         // RARE
         Registry.register(Registry.ITEM,
@@ -35,8 +37,7 @@ class Register {
             WzryItems.POJUN)
         Registry.register(Registry.ITEM,
             Identifier("wzry", "mingdaosiming"),
-            WzryItems.MINGDAOSIMING
-        )
+            WzryItems.MINGDAOSIMING)
         Registry.register(Registry.ITEM,
             Identifier("wzry", "posuimingdao"),
             WzryItems.POSUIMINGDAO)
