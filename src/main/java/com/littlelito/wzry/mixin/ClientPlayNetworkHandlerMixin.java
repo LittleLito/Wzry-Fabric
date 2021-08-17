@@ -48,6 +48,7 @@ public class ClientPlayNetworkHandlerMixin {
 
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public void onEntityStatus(EntityStatusS2CPacket packet) {

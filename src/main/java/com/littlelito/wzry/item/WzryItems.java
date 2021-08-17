@@ -23,6 +23,8 @@ public class WzryItems {
     public static final Item TIEJIAN = new TieJian();
     public static final Item LEIMINGREN = new LeiMingRen();
     public static final Item BISHOU = new BiShou();
+    public static final Item XIXUEZHILIAN = new XiXueZhiLian();
+    public static final Item BOJIQUANTAO = new BoJiQuanTao();
 
     // UNCOMMON
     public static final Item FENGBAOJUJIAN = new FengBaoJuJian();

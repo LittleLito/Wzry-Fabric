@@ -14,6 +14,7 @@ class WuJinZhanRen: WzrySwordItem(
     0F,
     0,
     -3.8F,
+    0F,
     0F
 ) {
 

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WRR",
+    "  S",
+    "  S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "wzry:xixuezhilian",
+    "count": 1
+  }
+}

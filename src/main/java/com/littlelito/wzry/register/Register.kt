@@ -18,6 +18,12 @@ class Register {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "bishou"),
             WzryItems.BISHOU)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "xixuezhilian"),
+            WzryItems.XIXUEZHILIAN)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "bojiquantao"),
+            WzryItems.BOJIQUANTAO)
 
 
         // UNCOMMON

@@ -1,6 +1,7 @@
 package com.littlelito.wzry.mixin;
 
 import com.littlelito.wzry.access.LivingEntityAccess;
+import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.client.ClientWzry;
 import com.littlelito.wzry.item.WzryItems;
 import net.minecraft.advancement.criterion.Criteria;
@@ -8,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
@@ -40,6 +42,18 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
     @Shadow public abstract boolean clearStatusEffects();
 
     @Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect);
+
+    @Shadow protected abstract float applyArmorToDamage(DamageSource source, float amount);
+
+    @Shadow protected abstract float applyEnchantmentsToDamage(DamageSource source, float amount);
+
+    @Shadow public abstract float getAbsorptionAmount();
+
+    @Shadow public abstract void setAbsorptionAmount(float amount);
+
+    @Shadow public abstract float getHealth();
+
+    @Shadow public abstract DamageTracker getDamageTracker();
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo info) {
@@ -113,6 +127,41 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
             }
 
             return itemStack != null;
+        }
+    }
+
+    /**
+     * @author Bugjang
+     * @reason no reason
+     */
+    @Overwrite
+    public void applyDamage(DamageSource source, float amount) {
+        if (!this.isInvulnerableTo(source)) {
+            amount = this.applyArmorToDamage(source, amount);
+            amount = this.applyEnchantmentsToDamage(source, amount);
+            float f = amount;
+            amount = Math.max(amount - this.getAbsorptionAmount(), 0.0F);
+            this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - amount));
+            float g = f - amount;
+            if (g > 0.0F && g < 3.4028235E37F && source.getAttacker() instanceof ServerPlayerEntity) {
+                ((ServerPlayerEntity)source.getAttacker()).increaseStat(Stats.DAMAGE_DEALT_ABSORBED, Math.round(g * 10.0F));
+            }
+
+            if (amount != 0.0F) {
+                float h = this.getHealth();
+                this.setHealth(h - amount);
+
+                // sucking health
+                Entity attacker = source.getAttacker();
+                if (attacker instanceof PlayerEntity) {
+                    System.out.println(((PlayerEntity) attacker).getHealth());
+                    System.out.println(((PlayerEntityAccess) attacker).getHealthSucking());
+                    System.out.println(amount);
+                    ((PlayerEntity) attacker).setHealth(((PlayerEntity) attacker).getHealth() + ((PlayerEntityAccess) attacker).getHealthSucking() * amount);
+                }
+                this.getDamageTracker().onDamage(source, h, amount);
+                this.setAbsorptionAmount(this.getAbsorptionAmount() - amount);
+            }
         }
     }
 

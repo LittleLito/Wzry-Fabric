@@ -29,6 +29,22 @@ class WzryWeaponMaterials {
         5,
         Items.IRON_INGOT
     )
+    val XIXUEZHILIAN = WzryWeaponMaterial(
+        100,
+        2F,
+        1F,
+        3,
+        8,
+        Items.REDSTONE
+    )
+    val BOJIQUANTAO = WzryWeaponMaterial(
+        100,
+        3F,
+        0F,
+        3,
+        13,
+        Items.REDSTONE
+    )
 
     // UNCOMMON
     val FENGBAOJUJIAN = WzryWeaponMaterial(

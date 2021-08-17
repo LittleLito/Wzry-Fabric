@@ -8,5 +8,6 @@ class TieJian: WzrySwordItem(
     0F,
     0,
     -3.9F,
+    0F,
     0F
 )

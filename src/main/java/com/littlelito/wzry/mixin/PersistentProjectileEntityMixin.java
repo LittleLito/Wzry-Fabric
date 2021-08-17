@@ -84,6 +84,7 @@ public abstract class PersistentProjectileEntityMixin extends Entity {
 
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public void onEntityHit(EntityHitResult entityHitResult) {

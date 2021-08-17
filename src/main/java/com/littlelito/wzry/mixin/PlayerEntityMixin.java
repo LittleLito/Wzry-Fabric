@@ -34,6 +34,8 @@ import java.util.List;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityAccess {
+    public float healthSucking = 0F;
+    public float penetration = 0F;
 
     @Shadow public abstract void resetLastAttackedTicks();
 
@@ -104,6 +106,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
                 float critRate = 0F;
                 float critEffect = 2.0F;
+                healthSucking = 0F;
 
                 for (ItemStack itemStack: getHotBar()) {
                     Item item = itemStack.getItem();
@@ -114,6 +117,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
                     if (item instanceof WzrySwordItem) {
                         critRate += ((WzrySwordItem) item).getCritRate();
+                        healthSucking += ((WzrySwordItem) item).getSuckingHealthPercentage();
 
                         // passive skills
                         if (item instanceof SuJiZhiQiang && !JINGZHUN) {
@@ -129,6 +133,11 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                             WUJIN = true;
                         }
                     }
+                    if (item instanceof WzryAxeItem) {
+                        critRate += ((WzryAxeItem) item).getCritRate();
+                        healthSucking += ((WzryAxeItem) item).getSuckingHealthPercentage();
+                    }
+
                 }
                 // crit
                 if (critRate > Math.random()) {
@@ -306,6 +315,12 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
         }
         return playerHotBar;
     }
+
+    @Override
+    public float getHealthSucking() { return this.healthSucking; }
+
+    @Override
+    public void setHealthSucking(float value) {this.healthSucking = value; }
 
 }
 

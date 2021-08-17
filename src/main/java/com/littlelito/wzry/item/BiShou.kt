@@ -13,7 +13,8 @@ class BiShou: WzrySwordItem(
     0F,
     0,
     -3.9F,
-    0.1F
+    0.1F,
+    0F
 ) {
     override fun appendTooltip(
         stack: ItemStack?,
