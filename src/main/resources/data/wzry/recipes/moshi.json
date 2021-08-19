@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " WO",
+    "WD ",
+    "X  "
+  ],
+  "key": {
+    "D": {
+      "item": "wzry:sujizhiqiang"
+    },
+    "O": {
+      "item": "wzry:xixuezhilian"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "wzry:leimingren"
+    }
+  },
+  "result": {
+    "item": "wzry:moshi",
+    "count": 1
+  }
+}

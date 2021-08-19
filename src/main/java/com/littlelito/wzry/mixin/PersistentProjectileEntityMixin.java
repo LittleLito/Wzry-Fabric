@@ -3,6 +3,8 @@ package com.littlelito.wzry.mixin;
 import com.google.common.collect.Lists;
 import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.item.SuJiZhiQiang;
+import com.littlelito.wzry.item.WzryAxeItem;
+import com.littlelito.wzry.item.WzrySwordItem;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -89,6 +91,7 @@ public abstract class PersistentProjectileEntityMixin extends Entity {
     @Overwrite
     public void onEntityHit(EntityHitResult entityHitResult) {
         boolean JINGZHUN = false;
+        boolean SUJIJINGZHUN = false;
 
         Entity entity = entityHitResult.getEntity();
         Entity entity2 = ((PersistentProjectileEntity) (Object) this).getOwner();
@@ -99,9 +102,20 @@ public abstract class PersistentProjectileEntityMixin extends Entity {
             DefaultedList<ItemStack> hotBar = ((PlayerEntityAccess) entity2).getHotBar();
 
             for (ItemStack itemStack: hotBar) {
+                if (itemStack.getItem() instanceof WzrySwordItem) { this.damage += ((WzrySwordItem) itemStack.getItem()).getAttackDamage(); }
+                if (itemStack.getItem() instanceof WzryAxeItem) { this.damage += ((WzryAxeItem) itemStack.getItem()).getAttackDamage(); }
+
+
                 if (itemStack.getItem() instanceof SuJiZhiQiang && !JINGZHUN) {
-                    this.damage = ((SuJiZhiQiang) itemStack.getItem()).passiveSkill((float) this.damage, (PlayerEntity) entity2);
+                    SUJIJINGZHUN = true;
                     JINGZHUN = true;
+                }
+            }
+            this.damage *= 0.8;
+
+            if (JINGZHUN) {
+                if (SUJIJINGZHUN) {
+                    damage = new SuJiZhiQiang().passiveSkill((float) damage, (PlayerEntity) entity2);
                 }
             }
 

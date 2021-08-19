@@ -15,7 +15,7 @@ class SuJiZhiQiang: WzrySwordItem(
     0F,
     0F,
     0,
-    -3.9F,
+    -3.8F,
     0.25F,
     0F
 ) {

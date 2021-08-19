@@ -9,6 +9,9 @@
   "item.wzry.bojiquantao": "搏击拳套",
   "item.wzry.bojiquantao.tooltip.properties": "+8%暴击率",
 
+  "item.wzry.xixuezhilian": "吸血之镰",
+  "item.wzry.xixuezhilian.tooltip.properties": "+8%物理吸血",
+
 
   "item.wzry.fengbaojujian": "风暴巨剑",
 
@@ -16,6 +19,11 @@
   "item.wzry.sujizhiqiang.tooltip.properties": "+25%攻速",
   "item.wzry.sujizhiqiang.tooltip.description": "攻击力提升3点（使用远程武器效果翻倍）",
 
+
+  "item.wzry.moshi": "末世",
+  "item.wzry.moshi.tooltip.properties1": "+30%攻速",
+  "item.wzry.moshi.tooltip.properties2": "+10%物理吸血",
+  "item.wzry.moshi.tooltip.description": "攻击附带目标当前生命值8%的伤害",
 
   "item.wzry.wujinzhanren": "无尽战刃",
   "item.wzry.wujinzhanren.tooltip.properties": "+20%暴击率",
@@ -26,6 +34,11 @@
 
   "item.wzry.mingdaosiming": "名刀-司命",
   "item.wzry.mingdaosiming.tooltip.description": "受到致命伤害时短暂无敌1.5秒，并获得60%移速提升",
-  "item.wzry.posuimingdao": ""
+  "item.wzry.posuimingdao": "",
+
+
+  "item.wzry.fanjia": "反伤刺甲",
+  "item.wzry.fanjia.tooltip.description1": "将受到伤害的25%回敬给攻击者",
+  "item.wzry.fanjia.tooltip.description2": "如果一次伤害大于最大生命值20%，则会对攻击者造成最大生命值10%的伤害"
 
 }

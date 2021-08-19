@@ -7,6 +7,7 @@ import com.littlelito.wzry.item.WzryItems;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
@@ -19,6 +20,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -54,6 +56,12 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
     @Shadow public abstract float getHealth();
 
     @Shadow public abstract DamageTracker getDamageTracker();
+
+    @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+
+    @Shadow public abstract float getMaxHealth();
+
+    @Shadow @Final private DefaultedList<ItemStack> equippedArmor;
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo info) {
@@ -136,6 +144,8 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
      */
     @Overwrite
     public void applyDamage(DamageSource source, float amount) {
+        boolean JINGJI = false;
+
         if (!this.isInvulnerableTo(source)) {
             amount = this.applyArmorToDamage(source, amount);
             amount = this.applyEnchantmentsToDamage(source, amount);
@@ -147,17 +157,29 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
                 ((ServerPlayerEntity)source.getAttacker()).increaseStat(Stats.DAMAGE_DEALT_ABSORBED, Math.round(g * 10.0F));
             }
 
+            for (ItemStack itemStack: this.equippedArmor) {
+                if (itemStack.getItem() == WzryItems.FANJIA) { JINGJI = true; }
+            }
+
             if (amount != 0.0F) {
                 float h = this.getHealth();
                 this.setHealth(h - amount);
 
-                // sucking health
                 Entity attacker = source.getAttacker();
-                if (attacker instanceof PlayerEntity) {
-                    System.out.println(((PlayerEntity) attacker).getHealth());
-                    System.out.println(((PlayerEntityAccess) attacker).getHealthSucking());
-                    System.out.println(amount);
-                    ((PlayerEntity) attacker).setHealth(((PlayerEntity) attacker).getHealth() + ((PlayerEntityAccess) attacker).getHealthSucking() * amount);
+                if (attacker instanceof LivingEntity) {
+                    if (JINGJI) {
+                        attacker.damage(DamageSource.thorns(this), amount * 0.25F);
+                        System.out.println(amount * 0.25F);
+                        if (amount > this.getMaxHealth() * 0.2) {
+                            System.out.println("ci");
+                            attacker.damage(DamageSource.mob((LivingEntity) (Object) this), this.getMaxHealth() * 0.1F);
+                        }
+                        JINGJI = false;
+                    }
+                    // health sucking
+                    if (attacker instanceof PlayerEntity) {
+                        ((PlayerEntity) attacker).setHealth(((PlayerEntity) attacker).getHealth() + ((PlayerEntityAccess) attacker).getHealthSucking() * amount);
+                    }
                 }
                 this.getDamageTracker().onDamage(source, h, amount);
                 this.setAbsorptionAmount(this.getAbsorptionAmount() - amount);

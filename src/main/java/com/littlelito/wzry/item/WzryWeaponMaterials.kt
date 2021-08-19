@@ -66,13 +66,29 @@ class WzryWeaponMaterials {
 
 
     // RARE
+    val MOSHI = WzryWeaponMaterial(
+        200,
+        7F,
+        6F,
+        5,
+        20,
+        Items.REDSTONE_BLOCK
+    )
+    val QIXUEZHIREN = WzryWeaponMaterial(
+        150,
+        5F,
+        10F,
+        4,
+        15,
+        Items.REDSTONE_BLOCK
+    )
     val WUJINZHANREN = WzryWeaponMaterial(
         150,
         5F,
         13F,
         3,
         15,
-        Items.OAK_PLANKS
+        Items.REDSTONE_BLOCK
     )
     val POJUN = WzryWeaponMaterial(
         250,
@@ -80,7 +96,7 @@ class WzryWeaponMaterials {
         18F,
         3,
         10,
-        Items.OAK_PLANKS
+        Items.DIAMOND
     )
     val MINGDAOSIMING =WzryWeaponMaterial(
         50,
@@ -88,7 +104,7 @@ class WzryWeaponMaterials {
         6F,
         1,
         5,
-        Items.OAK_PLANKS
+        Items.DIAMOND
 
     )
 }

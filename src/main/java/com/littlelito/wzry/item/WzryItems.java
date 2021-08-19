@@ -19,6 +19,14 @@ public class WzryItems {
             })
             .build();
 
+    public static final ItemGroup DEFEND_GROUP = FabricItemGroupBuilder.create(
+            new Identifier("wzry", "defend_item_group"))
+            .icon(() -> new ItemStack(WzryItems.WUJINZHANREN))
+            .appendItems(itemStacks -> {
+
+            })
+            .build();
+
     // COMMON
     public static final Item TIEJIAN = new TieJian();
     public static final Item LEIMINGREN = new LeiMingRen();
@@ -31,8 +39,15 @@ public class WzryItems {
     public static final Item SUJIZHIQIANG = new SuJiZhiQiang();
 
     // RARE
+    public static final Item MOSHI = new MoShi();
     public static final Item WUJINZHANREN = new WuJinZhanRen();
     public static final Item POJUN = new PoJun();
     public static final Item MINGDAOSIMING = new MingDaoSiMing();
     public static final Item POSUIMINGDAO = new Item(new Item.Settings());
+
+
+    // COMMON
+    // UNCOMMON
+    // RARE
+    public static final Item FANJIA = new FanShangCiJia();
 }

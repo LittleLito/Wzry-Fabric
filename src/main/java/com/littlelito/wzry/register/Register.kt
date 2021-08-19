@@ -36,6 +36,9 @@ class Register {
 
         // RARE
         Registry.register(Registry.ITEM,
+            Identifier("wzry", "moshi"),
+            WzryItems.MOSHI)
+        Registry.register(Registry.ITEM,
             Identifier("wzry", "wujinzhanren"),
             WzryItems.WUJINZHANREN)
         Registry.register(Registry.ITEM,
@@ -47,5 +50,13 @@ class Register {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "posuimingdao"),
             WzryItems.POSUIMINGDAO)
+
+
+        // COMMON
+        // UNCOMMON
+        // RARE
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "fanjia"),
+            WzryItems.FANJIA)
     }
 }

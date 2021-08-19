@@ -7,14 +7,14 @@ import net.minecraft.text.TranslatableText
 import net.minecraft.util.Rarity
 import net.minecraft.world.World
 
-class BiShou: WzrySwordItem(
-    WzryWeaponMaterials().BISHOU, Settings().rarity(Rarity.COMMON).group(WzryItems.ATTACK_GROUP),
+class QiXueZhiRen: WzrySwordItem(
+    WzryWeaponMaterials().QIXUEZHIREN, Settings().rarity(Rarity.RARE).group(WzryItems.ATTACK_GROUP),
     0F,
     0F,
     0,
-    -3.8F,
-    0.1F,
-    0F
+    -3.9F,
+    0F,
+    0.25F,
 ) {
     override fun appendTooltip(
         stack: ItemStack?,
@@ -22,6 +22,6 @@ class BiShou: WzrySwordItem(
         tooltip: MutableList<Text>,
         context: TooltipContext?
     ) {
-        tooltip.add(TranslatableText("item.wzry.bishou.tooltip.properties"))
+        tooltip.add(TranslatableText("item.wzry.qixuezhiren.tooltip.properties"))
     }
 }

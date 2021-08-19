@@ -9,6 +9,9 @@
   "item.wzry.bojiquantao": "BoJiQuanTao",
   "item.wzry.bojiquantao.tooltip.properties": "+8% Critical hit rate",
 
+  "item.wzry.xixuezhilian": "XiXueZhiLian",
+  "item.wzry.xixuezhilian.tooltip.properties": "+8% health sucking",
+
 
   "item.wzry.fengbaojujian": "FengBaoJuJian",
 
@@ -16,6 +19,11 @@
   "item.wzry.sujizhiqiang.tooltip.properties": "+25% attack speed",
   "item.wzry.sujizhiqiang.tooltip.description": "Increase attack damage by 3 points (double the effect while using long-range weapons)",
 
+
+  "item.wzry.moshi": "MoShi",
+  "item.wzry.moshi.tooltip.properties1": "+30% attck speed",
+  "item.wzry.moshi.tooltip.properties2": "+10% health sucking",
+  "item.wzry.moshi.tooltip.description": "attack is accompanied by 8% of the target's current HP",
 
   "item.wzry.wujinzhanren": "WuJinZhanRen",
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
@@ -26,5 +34,10 @@
 
   "item.wzry.mingdaosiming": "MingDaoSiMing",
   "item.wzry.mingdaosiming.tooltip.description": "Being invincible for 1.5s and gain 60% movement speed increase when receiving deadly damage, ",
-  "item.wzry.posuimingdao": ""
+  "item.wzry.posuimingdao": "",
+
+
+  "item.wzry.fanjia": "FanShangCiJia",
+  "item.wzry.fanjia.tooltip.description1": "Return 25% of the damage to the attacker",
+  "item.wzry.fanjia.tooltip.description2": "Return damage of 10% maxHP to the attacker if one damage is greater than 20% maxHP"
 }

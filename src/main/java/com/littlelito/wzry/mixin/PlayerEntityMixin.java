@@ -53,6 +53,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     @Shadow public abstract float getAttackCooldownProgress(float baseTime);
 
+    @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -82,7 +84,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                 }
             }
         }
-        if (!(this.getMainHandStack().getItem() instanceof ToolItem) || !hasWzry) {
+        if ((!(this.getMainHandStack().getItem() instanceof ToolItem) || !hasWzry) || getHotBar().equals(DefaultedList.ofSize(9, ItemStack.EMPTY))) {
             attackSpeed -= this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_SPEED);
         }
 
@@ -97,6 +99,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
     @Overwrite
     public void attack(Entity target) {
         boolean JINGZHUN = false;
+        boolean POBAI = false;
         boolean WUJIN = false;
         boolean POJUN = false;
 
@@ -136,12 +139,20 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                     if (item instanceof WzryAxeItem) {
                         critRate += ((WzryAxeItem) item).getCritRate();
                         healthSucking += ((WzryAxeItem) item).getSuckingHealthPercentage();
+
+                        // passive skills
+                        if (item instanceof MoShi && !POBAI) {
+                            POBAI = true;
+                        }
                     }
 
                 }
                 // crit
                 if (critRate > Math.random()) {
                     f *= critEffect;
+                }
+                if (POBAI) {
+                    f = new MoShi().passiveSkill(f, target);
                 }
 
                 float h;
@@ -300,6 +311,57 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                             target.extinguish();
                         }
                     }
+                }
+
+            }
+        }
+    }
+
+    /**
+     * @author Bugjang
+     */
+    @Overwrite
+    public void applyDamage(DamageSource source, float amount) {
+        boolean JINGJI = false;
+
+        if (!this.isInvulnerableTo(source)) {
+            amount = this.applyArmorToDamage(source, amount);
+            amount = this.applyEnchantmentsToDamage(source, amount);
+            float f = amount;
+            amount = Math.max(amount - this.getAbsorptionAmount(), 0.0F);
+            this.setAbsorptionAmount(this.getAbsorptionAmount() - (f - amount));
+            float g = f - amount;
+            if (g > 0.0F && g < 3.4028235E37F) {
+                this.increaseStat(Stats.DAMAGE_ABSORBED, Math.round(g * 10.0F));
+            }
+
+            if (this.getEquippedStack(EquipmentSlot.CHEST).getItem() == WzryItems.FANJIA) {
+                JINGJI = true;
+            }
+
+            if (amount != 0.0F) {
+                this.addExhaustion(source.getExhaustion());
+                float h = this.getHealth();
+                this.setHealth(this.getHealth() - amount);
+
+                Entity attacker = source.getAttacker();
+                if (attacker instanceof LivingEntity) {
+                    if (JINGJI) {
+                        attacker.damage(DamageSource.thorns(this), amount * 0.25F);
+                        System.out.println(amount * 0.25F);
+                        if (amount > this.getMaxHealth() * 0.2) {
+                            attacker.damage(DamageSource.mob((LivingEntity) this), this.getMaxHealth() * 0.1F);
+                        }
+                    }
+                    // health sucking
+                    if (attacker instanceof PlayerEntity) {
+                        ((PlayerEntity) attacker).setHealth(((PlayerEntity) attacker).getHealth() + ((PlayerEntityAccess) attacker).getHealthSucking() * amount);
+                    }
+                }
+
+                this.getDamageTracker().onDamage(source, h, amount);
+                if (amount < 3.4028235E37F) {
+                    this.increaseStat(Stats.DAMAGE_TAKEN, Math.round(amount * 10.0F));
                 }
 
             }
