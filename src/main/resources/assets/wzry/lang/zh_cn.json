@@ -19,6 +19,9 @@
   "item.wzry.sujizhiqiang.tooltip.properties": "+25%攻速",
   "item.wzry.sujizhiqiang.tooltip.description": "攻击力提升3点（使用远程武器效果翻倍）",
 
+  "item.wzry.yunxing": "陨星",
+  "item.wzry.yunxing.tooltip.properties": "+60物理穿透",
+
 
   "item.wzry.moshi": "末世",
   "item.wzry.moshi.tooltip.properties1": "+30%攻速",

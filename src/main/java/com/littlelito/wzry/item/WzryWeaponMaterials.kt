@@ -63,6 +63,22 @@ class WzryWeaponMaterials {
         15,
         Items.EMERALD
     )
+    val YUNXING = WzryWeaponMaterial(
+        300,
+        3F,
+        4.5F,
+        2,
+        12,
+        Items.REDSTONE_BLOCK
+    )
+    val RIMIAN = WzryWeaponMaterial(
+        150,
+        2.5F,
+        3F,
+        2,
+        10,
+        Items.IRON_INGOT
+    )
 
 
     // RARE
@@ -88,7 +104,7 @@ class WzryWeaponMaterials {
         13F,
         3,
         15,
-        Items.REDSTONE_BLOCK
+        Items.GUNPOWDER
     )
     val POJUN = WzryWeaponMaterial(
         250,

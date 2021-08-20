@@ -11,6 +11,7 @@ class BiShou: WzrySwordItem(
     WzryWeaponMaterials().BISHOU, Settings().rarity(Rarity.COMMON).group(WzryItems.ATTACK_GROUP),
     0F,
     0F,
+    0F,
     0,
     -3.8F,
     0.1F,

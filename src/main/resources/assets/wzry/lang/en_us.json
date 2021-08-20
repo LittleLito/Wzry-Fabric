@@ -19,6 +19,9 @@
   "item.wzry.sujizhiqiang.tooltip.properties": "+25% attack speed",
   "item.wzry.sujizhiqiang.tooltip.description": "Increase attack damage by 3 points (double the effect while using long-range weapons)",
 
+  "item.wzry.yunxing": "YunXing",
+  "item.wzry.yunxing.tooltip.properties": "+60 physical penetration",
+
 
   "item.wzry.moshi": "MoShi",
   "item.wzry.moshi.tooltip.properties1": "+30% attck speed",

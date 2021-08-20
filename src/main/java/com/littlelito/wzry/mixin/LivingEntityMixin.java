@@ -3,12 +3,13 @@ package com.littlelito.wzry.mixin;
 import com.littlelito.wzry.access.LivingEntityAccess;
 import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.client.ClientWzry;
+import com.littlelito.wzry.item.WzryAxeItem;
 import com.littlelito.wzry.item.WzryItems;
+import com.littlelito.wzry.item.WzrySwordItem;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.damage.DamageTracker;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -45,8 +46,6 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
 
     @Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect);
 
-    @Shadow protected abstract float applyArmorToDamage(DamageSource source, float amount);
-
     @Shadow protected abstract float applyEnchantmentsToDamage(DamageSource source, float amount);
 
     @Shadow public abstract float getAbsorptionAmount();
@@ -62,6 +61,14 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
     @Shadow public abstract float getMaxHealth();
 
     @Shadow @Final private DefaultedList<ItemStack> equippedArmor;
+
+    @Shadow protected abstract void damageArmor(DamageSource source, float amount);
+
+    @Shadow public abstract int getArmor();
+
+    @Shadow public abstract double getAttributeValue(EntityAttribute attribute);
+
+    @Shadow protected int itemUseTimeLeft;
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo info) {
@@ -185,6 +192,38 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
                 this.setAbsorptionAmount(this.getAbsorptionAmount() - amount);
             }
         }
+    }
+
+    /**
+     * @author Bugjang
+     */
+    @Overwrite
+    public float applyArmorToDamage(DamageSource source, float amount) {
+        float penetration = 0F;
+        float penetrationPercentage = 0F;
+        float armor = this.getArmor();
+
+        if (!source.bypassesArmor()) {
+            this.damageArmor(source, amount);
+            Entity attacker = source.getAttacker();
+            if (attacker instanceof PlayerEntity) {
+                for (ItemStack itemStack: ((PlayerEntityAccess) attacker).getHotBar()) {
+                    if (itemStack.getItem() instanceof WzrySwordItem) {
+                        penetration = Math.max(penetration, ((WzrySwordItem) itemStack.getItem()).getPenetration());
+                        penetrationPercentage = Math.max(penetrationPercentage, ((WzrySwordItem) itemStack.getItem()).getPenetrationPercentage());
+                    } if (itemStack.getItem() instanceof WzryAxeItem) {
+                        penetration = Math.max(penetration, ((WzryAxeItem) itemStack.getItem()).getPenetration());
+                        penetrationPercentage = Math.max(penetrationPercentage, ((WzryAxeItem) itemStack.getItem()).getPenetrationPercentage());
+                    }
+                }
+
+                armor = Math.max(((armor - penetration) * (1 - penetrationPercentage)), 0);
+
+            }
+            amount = DamageUtil.getDamageLeft(amount, armor, (float)this.getAttributeValue(EntityAttributes.GENERIC_ARMOR_TOUGHNESS));
+        }
+
+        return amount;
     }
 
     @Override

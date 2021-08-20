@@ -14,6 +14,7 @@ class SuJiZhiQiang: WzrySwordItem(
     WzryWeaponMaterials().SUJIZHIQIANG, Settings().rarity(Rarity.UNCOMMON).group(WzryItems.ATTACK_GROUP),
     0F,
     0F,
+    0F,
     0,
     -3.8F,
     0.25F,

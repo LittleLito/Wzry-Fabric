@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "WOW",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "minecraft:redstone"
+    },
+    "W": {
+      "item": "wzry:tiejian"
+    }
+  },
+  "result": {
+    "item": "wzry:yunxing",
+    "count": 1
+  }
+}

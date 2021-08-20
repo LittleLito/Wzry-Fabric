@@ -4,7 +4,7 @@ import com.littlelito.wzry.item.WzryItems
 import net.minecraft.util.Identifier
 import net.minecraft.util.registry.Registry
 
-class Register {
+class ItemRegister {
 
     fun register() {
 
@@ -33,6 +33,9 @@ class Register {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "sujizhiqiang"),
             WzryItems.SUJIZHIQIANG)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "yunxing"),
+            WzryItems.YUNXING)
 
         // RARE
         Registry.register(Registry.ITEM,

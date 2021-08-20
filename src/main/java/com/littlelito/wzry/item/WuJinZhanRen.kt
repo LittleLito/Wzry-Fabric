@@ -12,6 +12,7 @@ class WuJinZhanRen: WzrySwordItem(
     WzryWeaponMaterials().WUJINZHANREN, Settings().rarity(Rarity.RARE).group(WzryItems.ATTACK_GROUP),
     0.2F,
     0F,
+    0F,
     0,
     -3.8F,
     0F,

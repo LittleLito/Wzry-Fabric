@@ -3,7 +3,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     " W ",
-    "WOW",
+    "OXO",
     " W "
   ],
   "key": {
@@ -12,6 +12,9 @@
     },
     "W": {
       "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:gunpowder"
     }
   },
   "result": {
