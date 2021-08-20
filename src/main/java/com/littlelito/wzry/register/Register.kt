@@ -39,6 +39,9 @@ class Register {
             Identifier("wzry", "moshi"),
             WzryItems.MOSHI)
         Registry.register(Registry.ITEM,
+            Identifier("wzry", "qixuezhiren"),
+            WzryItems.QIXUEZHIREN)
+        Registry.register(Registry.ITEM,
             Identifier("wzry", "wujinzhanren"),
             WzryItems.WUJINZHANREN)
         Registry.register(Registry.ITEM,

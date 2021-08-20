@@ -25,6 +25,9 @@
   "item.wzry.moshi.tooltip.properties2": "+10%物理吸血",
   "item.wzry.moshi.tooltip.description": "攻击附带目标当前生命值8%的伤害",
 
+  "item.wzry.qixuezhiren": "泣血之刃",
+  "item.wzry.qixuezhiren.tooltip.properties": "+25%物理吸血",
+
   "item.wzry.wujinzhanren": "无尽战刃",
   "item.wzry.wujinzhanren.tooltip.properties": "+20%暴击率",
   "item.wzry.wujinzhanren.tooltip.description": "+40%暴击效果",

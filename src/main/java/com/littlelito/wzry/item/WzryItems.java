@@ -40,6 +40,7 @@ public class WzryItems {
 
     // RARE
     public static final Item MOSHI = new MoShi();
+    public static final Item QIXUEZHIREN = new QiXueZhiRen();
     public static final Item WUJINZHANREN = new WuJinZhanRen();
     public static final Item POJUN = new PoJun();
     public static final Item MINGDAOSIMING = new MingDaoSiMing();

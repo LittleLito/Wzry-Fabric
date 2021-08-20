@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " WV",
+    "WO ",
+    "X  "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:stick"
+    },
+    "O": {
+      "item": "wzry:fengbaojujian"
+    },
+    "W": {
+      "item": "minecraft:redstone"
+    },
+    "V": {
+      "item": "wzry:xixuezhilian"
+    }
+  },
+  "result": {
+    "item": "wzry:qixuezhiren",
+    "count": 1
+  }
+}

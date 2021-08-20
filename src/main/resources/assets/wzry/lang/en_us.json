@@ -25,6 +25,9 @@
   "item.wzry.moshi.tooltip.properties2": "+10% health sucking",
   "item.wzry.moshi.tooltip.description": "attack is accompanied by 8% of the target's current HP",
 
+  "item.wzry.qixuezhiren": "QiXueZhiRen",
+  "item.wzry.qixuezhiren.tooltip.properties": "+25% health sucking",
+
   "item.wzry.wujinzhanren": "WuJinZhanRen",
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
   "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",
