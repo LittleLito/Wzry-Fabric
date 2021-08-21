@@ -1,0 +1,24 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WXW",
+    " O ",
+    " O "
+  ],
+  "key": {
+    "X": {
+      "item": "wzry:hongmanao"
+    },
+    "O": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "wzry:tiejian"
+    }
+  },
+  "result": {
+    "item": "wzry:rimian",
+    "count": 1
+  }
+}

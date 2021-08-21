@@ -22,6 +22,10 @@
   "item.wzry.yunxing": "YunXing",
   "item.wzry.yunxing.tooltip.properties": "+60 physical penetration",
 
+  "item.wzry.rimian": "RiMian",
+  "item.wzry.rimian.tooltip.properties": "+3 max health",
+  "item.wzry.rimian.tooltip.description": "Attack has a 30% chance to reduce enemy's move speed by 20% for 2 seconds",
+
 
   "item.wzry.moshi": "MoShi",
   "item.wzry.moshi.tooltip.properties1": "+30% attck speed",

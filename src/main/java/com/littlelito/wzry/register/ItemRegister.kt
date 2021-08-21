@@ -36,6 +36,9 @@ class ItemRegister {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "yunxing"),
             WzryItems.YUNXING)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "rimian"),
+            WzryItems.RIMIAN)
 
         // RARE
         Registry.register(Registry.ITEM,
@@ -59,6 +62,9 @@ class ItemRegister {
 
 
         // COMMON
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "hongmanao"),
+            WzryItems.HONGMANAO)
         // UNCOMMON
         // RARE
         Registry.register(Registry.ITEM,

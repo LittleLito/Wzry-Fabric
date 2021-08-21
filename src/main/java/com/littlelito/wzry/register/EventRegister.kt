@@ -31,6 +31,7 @@ class EventRegister {
                 CREEPER_LOOT_TABLE_ID -> {
                     val poolBuider: FabricLootPoolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootTableRange.create(2))
+                        .with(ItemEntry.builder(Items.DIRT).weight(20))
                         .with(ItemEntry.builder(Items.IRON_INGOT).weight(15))
                         .with(ItemEntry.builder(Items.REDSTONE).weight(8))
                         .with(ItemEntry.builder(Items.DIAMOND).weight(1))
@@ -39,6 +40,7 @@ class EventRegister {
                 HUSK_LOOT_TABLE_ID -> {
                     val poolBuider: FabricLootPoolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootTableRange.create(2))
+                        .with(ItemEntry.builder(Items.DIRT).weight(20))
                         .with(ItemEntry.builder(Items.IRON_INGOT).weight(15))
                         .with(ItemEntry.builder(Items.LAPIS_LAZULI).weight(5))
                         .with(ItemEntry.builder(Items.DIAMOND).weight(1))

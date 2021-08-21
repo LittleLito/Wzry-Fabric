@@ -4,10 +4,12 @@ import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.item.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -28,14 +30,21 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.UUID;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityAccess {
     public float healthSucking = 0F;
     public float penetration = 0F;
+    boolean EQUIPED = false;
+    UUID uuid;
 
     @Shadow public abstract void resetLastAttackedTicks();
 
@@ -57,6 +66,37 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
+    }
+    @Inject(method = "tick", at = @At("HEAD"))
+    public void tick(CallbackInfo info) {
+        float maxHealthIncrease = 0F;
+        boolean HAVE = false;
+
+
+        for (ItemStack itemStack: getHotBar()) {
+            if (itemStack.getItem() instanceof RiMian) {
+            maxHealthIncrease += 3;
+            HAVE = true;
+            } if (itemStack.getItem() instanceof HongMaNao) {
+                maxHealthIncrease += 3;
+                HAVE = true;
+            }
+        }
+
+        EntityAttributeModifier maxHealthModifier = new EntityAttributeModifier(
+                "Tool modifier",
+                maxHealthIncrease, EntityAttributeModifier.Operation.ADDITION
+        );
+        if (HAVE) {
+            if (!EQUIPED){
+                Objects.requireNonNull(this.getAttributes().getCustomInstance(EntityAttributes.GENERIC_MAX_HEALTH)).addTemporaryModifier(maxHealthModifier);
+                uuid = maxHealthModifier.getId();
+                EQUIPED = true;
+            }
+        } else {
+            EQUIPED = false;
+            Objects.requireNonNull(this.getAttributes().getCustomInstance(EntityAttributes.GENERIC_MAX_HEALTH)).removeModifier(uuid);
+        }
     }
 
     /**
@@ -99,6 +139,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
     @Overwrite
     public void attack(Entity target) {
         boolean JINGZHUN = false;
+        String CANFEI = "";
         boolean POBAI = false;
         boolean WUJIN = false;
         boolean POJUN = false;
@@ -141,6 +182,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                         healthSucking += ((WzryAxeItem) item).getSuckingHealthPercentage();
 
                         // passive skills
+                        if (item instanceof RiMian && CANFEI.equals("")) { CANFEI = "RiMian"; }
                         if (item instanceof MoShi && !POBAI) {
                             POBAI = true;
                         }
@@ -151,6 +193,23 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                 if (critRate > Math.random()) {
                     f *= critEffect;
                 }
+                // CANFEI
+                if (target instanceof LivingEntity) {
+                    switch (CANFEI) {
+                        case "":
+                        case "RiMian": {
+                            if (0.3 >= Math.random()) {
+                                ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 40, 0));
+                            }
+                        }
+                        case "HeiQie": {
+                            if (0.3 >= Math.random()) {
+                                ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 60, 1));
+                            }
+                        }
+                    }
+                }
+                // POBAI
                 if (POBAI) {
                     f = new MoShi().passiveSkill(f, target);
                 }

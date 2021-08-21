@@ -22,6 +22,10 @@
   "item.wzry.yunxing": "陨星",
   "item.wzry.yunxing.tooltip.properties": "+60物理穿透",
 
+  "item.wzry.rimian": "日冕",
+  "item.wzry.rimian.tooltip.properties": "+3最大生命",
+  "item.wzry.rimian.tooltip.description": "攻击有30%几率降低敌人20%移动速度持续2秒",
+
 
   "item.wzry.moshi": "末世",
   "item.wzry.moshi.tooltip.properties1": "+30%攻速",

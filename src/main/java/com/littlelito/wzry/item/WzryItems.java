@@ -38,6 +38,7 @@ public class WzryItems {
     public static final Item FENGBAOJUJIAN = new FengBaoJuJian();
     public static final Item SUJIZHIQIANG = new SuJiZhiQiang();
     public static final Item YUNXING = new YunXing();
+    public static final Item RIMIAN = new RiMian();
 
     // RARE
     public static final Item MOSHI = new MoShi();
@@ -49,6 +50,7 @@ public class WzryItems {
 
 
     // COMMON
+    public static final Item HONGMANAO = new HongMaNao();
     // UNCOMMON
     // RARE
     public static final Item FANJIA = new FanShangCiJia();
