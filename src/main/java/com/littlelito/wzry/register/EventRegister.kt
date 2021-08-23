@@ -12,8 +12,10 @@ import net.minecraft.loot.ConstantLootTableRange
 import net.minecraft.loot.entry.ItemEntry
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.MathHelper
 
 class EventRegister {
+    private val PLAYER_LOOT_TABLE_ID: Identifier = EntityType.PLAYER.lootTableId
     private val HUSK_LOOT_TABLE_ID: Identifier = EntityType.HUSK.lootTableId
     private val CREEPER_LOOT_TABLE_ID: Identifier = EntityType.CREEPER.lootTableId
 
@@ -28,6 +30,18 @@ class EventRegister {
         LootTableLoadingCallback.EVENT.register {
                 resourceManager, lootManager, id, table, setter ->
             when (id) {
+                PLAYER_LOOT_TABLE_ID -> {
+                    val poolBuider: FabricLootPoolBuilder = FabricLootPoolBuilder.builder()
+                        .rolls(ConstantLootTableRange.create(MathHelper.floor(Math.random() * 3) + 4))
+                        .with(ItemEntry.builder(Items.IRON_INGOT).weight(20))
+                        .with(ItemEntry.builder(Items.EMERALD).weight(15))
+                        .with(ItemEntry.builder(Items.REDSTONE).weight(10))
+                        .with(ItemEntry.builder(Items.LAPIS_LAZULI).weight(10))
+                        .with(ItemEntry.builder(Items.GUNPOWDER).weight(10))
+                        .with(ItemEntry.builder(Items.LEATHER).weight(10))
+                        .with(ItemEntry.builder(Items.DIAMOND).weight(8))
+                    table.pool(poolBuider)
+                }
                 CREEPER_LOOT_TABLE_ID -> {
                     val poolBuider: FabricLootPoolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootTableRange.create(2))

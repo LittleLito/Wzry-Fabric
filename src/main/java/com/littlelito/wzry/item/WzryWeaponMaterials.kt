@@ -106,6 +106,14 @@ class WzryWeaponMaterials {
         15,
         Items.GUNPOWDER
     )
+    val ANYINGZHANFU = WzryWeaponMaterial(
+        300,
+        3F,
+        8.5F,
+        3,
+        20,
+        Items.DIAMOND
+    )
     val POJUN = WzryWeaponMaterial(
         250,
         2F,

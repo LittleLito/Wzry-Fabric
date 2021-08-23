@@ -45,6 +45,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
     public float penetration = 0F;
     boolean EQUIPED = false;
     UUID uuid;
+    float lastIncrease;
 
     @Shadow public abstract void resetLastAttackedTicks();
 
@@ -63,6 +64,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
     @Shadow public abstract float getAttackCooldownProgress(float baseTime);
 
     @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
+
+    @Shadow public int experienceLevel;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -89,14 +92,20 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
         );
         if (HAVE) {
             if (!EQUIPED){
+                System.out.println(maxHealthModifier.getId());
                 Objects.requireNonNull(this.getAttributes().getCustomInstance(EntityAttributes.GENERIC_MAX_HEALTH)).addTemporaryModifier(maxHealthModifier);
                 uuid = maxHealthModifier.getId();
                 EQUIPED = true;
+            } if (maxHealthIncrease != lastIncrease) {
+                Objects.requireNonNull(this.getAttributes().getCustomInstance(EntityAttributes.GENERIC_MAX_HEALTH)).removeModifier(uuid);
+                Objects.requireNonNull(this.getAttributes().getCustomInstance(EntityAttributes.GENERIC_MAX_HEALTH)).addTemporaryModifier(maxHealthModifier);
+                uuid = maxHealthModifier.getId();
             }
         } else {
             EQUIPED = false;
             Objects.requireNonNull(this.getAttributes().getCustomInstance(EntityAttributes.GENERIC_MAX_HEALTH)).removeModifier(uuid);
         }
+        lastIncrease = maxHealthIncrease;
     }
 
     /**
@@ -378,6 +387,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public void applyDamage(DamageSource source, float amount) {
@@ -407,7 +417,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                 if (attacker instanceof LivingEntity) {
                     if (JINGJI) {
                         attacker.damage(DamageSource.thorns(this), amount * 0.25F);
-                        System.out.println(amount * 0.25F);
                         if (amount > this.getMaxHealth() * 0.2) {
                             attacker.damage(DamageSource.mob((LivingEntity) this), this.getMaxHealth() * 0.1F);
                         }

@@ -12,7 +12,7 @@ class WzryArmorMaterials {
         "fan_jia",
         EquipmentSlot.CHEST,
         3500,
-        5,
+        350,
         20,
         SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
         5F,

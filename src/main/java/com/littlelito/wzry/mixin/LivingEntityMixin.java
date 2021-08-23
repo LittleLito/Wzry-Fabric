@@ -3,6 +3,7 @@ package com.littlelito.wzry.mixin;
 import com.littlelito.wzry.access.LivingEntityAccess;
 import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.client.ClientWzry;
+import com.littlelito.wzry.item.AnYingZhanFu;
 import com.littlelito.wzry.item.WzryAxeItem;
 import com.littlelito.wzry.item.WzryItems;
 import com.littlelito.wzry.item.WzrySwordItem;
@@ -20,6 +21,7 @@ import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -64,11 +66,11 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
 
     @Shadow protected abstract void damageArmor(DamageSource source, float amount);
 
-    @Shadow public abstract int getArmor();
-
     @Shadow public abstract double getAttributeValue(EntityAttribute attribute);
 
     @Shadow protected int itemUseTimeLeft;
+
+    @Shadow public abstract boolean isAlive();
 
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo info) {
@@ -77,6 +79,20 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
             canUseMingDao = lastUseMingDao <= 0;
             ClientWzry.canUseMingDao = lastUseMingDao <= 0;
         }
+    }
+    /**
+     * @author Bugjang
+     */
+    @Overwrite
+    public int getArmor() {
+        double armor = this.getAttributeValue(EntityAttributes.GENERIC_ARMOR);
+        if ((LivingEntity) (Object) this instanceof PlayerEntity) {
+            if (((PlayerEntity) (Object) this).experienceLevel <= 0) {
+                return MathHelper.floor(armor + 0);
+            } else {
+                return MathHelper.floor(armor + ((PlayerEntity) (Object) this).experienceLevel * 10);
+            }
+        } else return MathHelper.floor(armor);
     }
 
     /**
@@ -208,11 +224,18 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
             Entity attacker = source.getAttacker();
             if (attacker instanceof PlayerEntity) {
                 for (ItemStack itemStack: ((PlayerEntityAccess) attacker).getHotBar()) {
+
                     if (itemStack.getItem() instanceof WzrySwordItem) {
                         penetration = Math.max(penetration, ((WzrySwordItem) itemStack.getItem()).getPenetration());
                         penetrationPercentage = Math.max(penetrationPercentage, ((WzrySwordItem) itemStack.getItem()).getPenetrationPercentage());
-                    } if (itemStack.getItem() instanceof WzryAxeItem) {
-                        penetration = Math.max(penetration, ((WzryAxeItem) itemStack.getItem()).getPenetration());
+                    }
+                    if (itemStack.getItem() instanceof WzryAxeItem) {
+
+                        if (itemStack.getItem() instanceof AnYingZhanFu) {
+                            penetration = Math.max(penetration, ((AnYingZhanFu) itemStack.getItem()).passiveSkill((PlayerEntity) attacker));
+                        } else {
+                            penetration = Math.max(penetration, ((WzryAxeItem) itemStack.getItem()).getPenetration());
+                        }
                         penetrationPercentage = Math.max(penetrationPercentage, ((WzryAxeItem) itemStack.getItem()).getPenetrationPercentage());
                     }
                 }

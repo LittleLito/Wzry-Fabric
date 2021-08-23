@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WXW",
+    "WO ",
+    " S "
+  ],
+  "key": {
+    "X": {
+      "item": "wzry:yunxing"
+    },
+    "O": {
+      "item": "wzry:rimian"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "wzry:anyingzhanfu",
+    "count": 1
+  }
+}

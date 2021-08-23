@@ -44,6 +44,7 @@ public class WzryItems {
     public static final Item MOSHI = new MoShi();
     public static final Item QIXUEZHIREN = new QiXueZhiRen();
     public static final Item WUJINZHANREN = new WuJinZhanRen();
+    public static final Item ANYINGZHANFU = new AnYingZhanFu();
     public static final Item POJUN = new PoJun();
     public static final Item MINGDAOSIMING = new MingDaoSiMing();
     public static final Item POSUIMINGDAO = new Item(new Item.Settings());

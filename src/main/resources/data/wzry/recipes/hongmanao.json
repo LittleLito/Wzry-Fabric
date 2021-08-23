@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " W ",
+    "WOW",
+    " W "
+  ],
+  "key": {
+    "O": {
+      "item": "minecraft:redstone"
+    },
+    "W": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "wzry:hongmanao",
+    "count": 1
+  }
+
+}

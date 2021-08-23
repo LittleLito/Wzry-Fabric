@@ -24,8 +24,13 @@
 
   "item.wzry.rimian": "日冕",
   "item.wzry.rimian.tooltip.properties": "+3最大生命",
-  "item.wzry.rimian.tooltip.description": "攻击有30%几率降低敌人20%移动速度持续2秒",
+  "item.wzry.rimian.tooltip.description": "有30%几率降低敌人20%移动速度持续2秒",
 
+
+  "item.wzry.anyingzhanfu": "暗影战斧",
+  "item.wzry.anyingzhanfu.tooltip.properties": "+5最大生命",
+  "item.wzry.anyingzhanfu.tooltip.description1": "有30%几率降低敌人30%移动速度持续3秒",
+  "item.wzry.anyingzhanfu.tooltip.description2": "+60~200物理穿透（与等级相关）",
 
   "item.wzry.moshi": "末世",
   "item.wzry.moshi.tooltip.properties1": "+30%攻速",
@@ -46,6 +51,9 @@
   "item.wzry.mingdaosiming.tooltip.description": "受到致命伤害时短暂无敌1.5秒，并获得60%移速提升",
   "item.wzry.posuimingdao": "",
 
+
+  "item.wzry.hongmanao": "红玛瑙",
+  "item.wzry.hongmanao.tooltip.properties": "+3最大生命",
 
   "item.wzry.fanjia": "反伤刺甲",
   "item.wzry.fanjia.tooltip.description1": "将受到伤害的25%回敬给攻击者",

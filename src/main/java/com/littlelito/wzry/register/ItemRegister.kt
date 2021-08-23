@@ -51,6 +51,9 @@ class ItemRegister {
             Identifier("wzry", "wujinzhanren"),
             WzryItems.WUJINZHANREN)
         Registry.register(Registry.ITEM,
+            Identifier("wzry", "anyingzhanfu"),
+            WzryItems.ANYINGZHANFU)
+        Registry.register(Registry.ITEM,
             Identifier("wzry", "pojun"),
             WzryItems.POJUN)
         Registry.register(Registry.ITEM,

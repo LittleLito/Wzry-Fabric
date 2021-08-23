@@ -24,7 +24,7 @@
 
   "item.wzry.rimian": "RiMian",
   "item.wzry.rimian.tooltip.properties": "+3 max health",
-  "item.wzry.rimian.tooltip.description": "Attack has a 30% chance to reduce enemy's move speed by 20% for 2 seconds",
+  "item.wzry.rimian.tooltip.description": "Attack has a 30% chance to reduce enemy's move speed by 20% for 2s",
 
 
   "item.wzry.moshi": "MoShi",
@@ -39,6 +39,11 @@
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
   "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",
 
+  "item.wzry.anyingzhanfu": "AnYingZhanFu",
+  "item.wzry.anyingzhanfu.tooltip.properties": "+5 max health",
+  "item.wzry.anyingzhanfu.tooltip.description1": "Attack has a 30% chance to reduce enemy's move speed by 30% for 3s",
+  "item.wzry.anyingzhanfu.tooltip.description2": "+60~200 physical penetration(level related)",
+
   "item.wzry.pojun": "PoJun",
   "item.wzry.pojun.tooltip.description": "Deal additional 30% damage to targets whose HP is less than 50%",
 
@@ -46,6 +51,9 @@
   "item.wzry.mingdaosiming.tooltip.description": "Being invincible for 1.5s and gain 60% movement speed increase when receiving deadly damage, ",
   "item.wzry.posuimingdao": "",
 
+
+  "item.wzry.hongmanao": "HongMaNao",
+  "item.wzry.hongmanao.tooltip.properties": "+3 max health",
 
   "item.wzry.fanjia": "FanShangCiJia",
   "item.wzry.fanjia.tooltip.description1": "Return 25% of the damage to the attacker",
