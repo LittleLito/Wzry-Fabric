@@ -55,6 +55,8 @@
   "item.wzry.hongmanao": "红玛瑙",
   "item.wzry.hongmanao.tooltip.properties": "+3最大生命",
 
+  "item.wzry.bujia": "布甲",
+
   "item.wzry.fanjia": "反伤刺甲",
   "item.wzry.fanjia.tooltip.description1": "将受到伤害的25%回敬给攻击者",
   "item.wzry.fanjia.tooltip.description2": "如果一次伤害大于最大生命值20%，则会对攻击者造成最大生命值10%的伤害"

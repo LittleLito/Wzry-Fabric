@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "L L",
+    "WOW",
+    "WXW"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "wzry:tiejian"
+    },
+    "W": {
+      "tag": "wzry:leather_armors"
+    }
+  },
+  "result": {
+    "item": "wzry:fanjia",
+    "count": 1
+  }
+}

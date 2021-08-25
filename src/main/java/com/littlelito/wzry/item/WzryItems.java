@@ -52,6 +52,7 @@ public class WzryItems {
 
     // COMMON
     public static final Item HONGMANAO = new HongMaNao();
+    public static final Item BUJIA = new BuJia();
     // UNCOMMON
     // RARE
     public static final Item FANJIA = new FanShangCiJia();

@@ -55,6 +55,8 @@
   "item.wzry.hongmanao": "HongMaNao",
   "item.wzry.hongmanao.tooltip.properties": "+3 max health",
 
+  "item.wzry.bujia": "BuJia",
+
   "item.wzry.fanjia": "FanShangCiJia",
   "item.wzry.fanjia.tooltip.description1": "Return 25% of the damage to the attacker",
   "item.wzry.fanjia.tooltip.description2": "Return damage of 10% maxHP to the attacker if one damage is greater than 20% maxHP"

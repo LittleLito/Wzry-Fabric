@@ -67,6 +67,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     @Shadow public int experienceLevel;
 
+    @Shadow public int experiencePickUpDelay;
+
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
     }
@@ -139,6 +141,20 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
         attackSpeed = attackSpeed * (attackSpeedPercentage + 1);
         return (float)(1.0D / attackSpeed * 20.0D);
+    }
+
+    /**
+     * @author Bugjang
+     */
+    @Overwrite
+    public int getXpToDrop(PlayerEntity player) {
+        if (!this.isSpectator()) {
+            int i = this.experienceLevel * 7;
+            this.experienceLevel = this.experienceLevel - 3;
+            return Math.min(i, 300);
+        } else {
+            return 0;
+        }
     }
 
     /**
