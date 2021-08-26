@@ -11,12 +11,12 @@ import net.minecraft.item.ArmorItem
 import net.minecraft.util.Rarity
 import java.util.*
 
-class BuJia(
-    private val material: WzryArmorMaterial = WzryArmorMaterials().BUJIA,
-    private val slot: EquipmentSlot = EquipmentSlot.CHEST,
+class BuHuTui(
+    private val material: WzryArmorMaterial = WzryArmorMaterials().BUHUTUI,
+    private val slot: EquipmentSlot = EquipmentSlot.LEGS,
     val settings: Settings = Settings().rarity(Rarity.COMMON).group(WzryItems.DEFEND_GROUP)
 ): ArmorItem(
-material, slot, settings
+    material, slot, settings
 ) {
     private val MODIFIERS = arrayOf(
         UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"),
