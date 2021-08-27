@@ -74,6 +74,9 @@ class ItemRegister {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "buhutui"),
             WzryItems.BUHUTUI)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "butoukui"),
+            WzryItems.BUTOUKUI)
         // UNCOMMON
         // RARE
         Registry.register(Registry.ITEM,

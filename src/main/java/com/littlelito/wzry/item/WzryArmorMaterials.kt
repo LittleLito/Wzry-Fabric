@@ -40,6 +40,17 @@ class WzryArmorMaterials {
         0F
     )
     // UNCOMMON
+    val LILIANGYAODAI = WzryArmorMaterial(
+        "li_liang_yao_dai",
+        EquipmentSlot.LEGS,
+        1000,
+        0,
+        12,
+        SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+        4F,
+        Items.IRON_BLOCK,
+        0F
+    )
     // RARE
     val FANJIA = WzryArmorMaterial(
         "fan_jia",
