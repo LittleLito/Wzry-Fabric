@@ -23,6 +23,7 @@ class EventRegister {
         ServerPlayerEvents.COPY_FROM.register(CopyFrom { oldPlayer: ServerPlayerEntity, newPlayer: ServerPlayerEntity, alive: Boolean ->
             (newPlayer as LivingEntityAccess).lastUseMingDao = (oldPlayer as LivingEntityAccess).lastUseMingDao
             (newPlayer as LivingEntityAccess).canUseMingDao = (oldPlayer as LivingEntityAccess).canUseMingDao
+            newPlayer.data = oldPlayer.data
             ClientWzry.canUseMingDao = (newPlayer as LivingEntityAccess).canUseMingDao
         })
 

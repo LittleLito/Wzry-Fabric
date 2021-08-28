@@ -18,6 +18,7 @@ public class DamageUtilMixin {
     }
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public static float getInflictedDamage(float damageDealt, float protection) {

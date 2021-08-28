@@ -8,6 +8,7 @@
     "DamageUtilMixin",
     "EntityAttributesMixin",
     "LivingEntityMixin",
+    "LivingEntityRendererMixin",
     "MobEntityMixin",
     "PersistentProjectileEntityMixin",
     "PlayerEntityMixin"

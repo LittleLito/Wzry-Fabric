@@ -79,10 +79,10 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
 
         for (ItemStack itemStack: getHotBar()) {
-            if (itemStack.getItem() instanceof RiMian) {
-            maxHealthIncrease += 3;
-            HAVE = true;
-            } if (itemStack.getItem() instanceof HongMaNao) {
+            if (itemStack.getItem() instanceof HongMaNao) {
+                maxHealthIncrease += 3;
+                HAVE = true;
+            } if (itemStack.getItem() instanceof RiMian) {
                 maxHealthIncrease += 3;
                 HAVE = true;
             }
@@ -145,6 +145,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public int getXpToDrop(PlayerEntity player) {

@@ -25,6 +25,7 @@ public class MobEntityMixin {
 
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public int getXpToDrop(PlayerEntity player) {

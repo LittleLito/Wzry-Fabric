@@ -3,23 +3,18 @@ package com.littlelito.wzry.item
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
 import net.minecraft.block.DispenserBlock
-import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.EquipmentSlot
 import net.minecraft.entity.attribute.EntityAttribute
 import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.item.ArmorItem
-import net.minecraft.item.ItemStack
-import net.minecraft.text.Text
-import net.minecraft.text.TranslatableText
 import net.minecraft.util.Rarity
-import net.minecraft.world.World
 import java.util.*
 
-class LiLiangYaoDai(
-    private val material: WzryArmorMaterial = WzryArmorMaterials().LILIANGYAODAI,
-    private val slot: EquipmentSlot = EquipmentSlot.LEGS,
-    val settings: Settings = Settings().rarity(Rarity.UNCOMMON).group(WzryItems.DEFEND_GROUP)
+class BuXue(
+    private val material: WzryArmorMaterial = WzryArmorMaterials().BUXUE,
+    private val slot: EquipmentSlot = EquipmentSlot.FEET,
+    val settings: Settings = Settings().rarity(Rarity.COMMON).group(WzryItems.DEFEND_GROUP)
 ): ArmorItem(
     material, slot, settings
 ) {
@@ -50,9 +45,9 @@ class LiLiangYaoDai(
             )
         )
         builder.put(
-            EntityAttributes.GENERIC_MAX_HEALTH, EntityAttributeModifier(
-                uUID, "Armor max health",
-                (10).toDouble(), EntityAttributeModifier.Operation.ADDITION
+            EntityAttributes.GENERIC_MOVEMENT_SPEED, EntityAttributeModifier(
+                uUID, "Armor movement speed",
+                (3).toDouble(), EntityAttributeModifier.Operation.ADDITION
             )
         )
 
@@ -62,14 +57,5 @@ class LiLiangYaoDai(
 
     override fun getAttributeModifiers(slot: EquipmentSlot): Multimap<EntityAttribute, EntityAttributeModifier> {
         return if (slot == this.slot) this.attributeModifiers else super.getAttributeModifiers(slot)
-    }
-
-    override fun appendTooltip(
-        stack: ItemStack?,
-        world: World?,
-        tooltip: MutableList<Text>,
-        context: TooltipContext?
-    ) {
-        tooltip.add(TranslatableText("item.wzry.liliangyaodai.tooltip.properties"))
     }
 }

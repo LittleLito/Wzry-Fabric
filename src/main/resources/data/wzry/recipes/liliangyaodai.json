@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "XXX",
+    "   "
+  ],
+  "key": {
+    "W": {
+      "item": "wzry:hongmanao"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "wzry:liliangyaodai",
+    "count": 1
+  }
+}

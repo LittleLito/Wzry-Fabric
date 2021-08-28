@@ -39,6 +39,17 @@ class WzryArmorMaterials {
         Items.LEATHER,
         0F
     )
+    val BUXUE = WzryArmorMaterial(
+        "bu_xue",
+        EquipmentSlot.FEET,
+        300,
+        0,
+        6,
+        SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+        3F,
+        Items.LEATHER,
+        0F
+    )
     // UNCOMMON
     val LILIANGYAODAI = WzryArmorMaterial(
         "li_liang_yao_dai",
@@ -49,6 +60,17 @@ class WzryArmorMaterials {
         SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
         4F,
         Items.IRON_BLOCK,
+        0F
+    )
+    val JINJINDELILIANG = WzryArmorMaterial(
+        "jin_jin_de_li_liang",
+        EquipmentSlot.HEAD,
+        1200,
+        120,
+        12,
+        SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+        4F,
+        Items.REDSTONE_BLOCK,
         0F
     )
     // RARE

@@ -56,6 +56,7 @@ public class WzryItems {
     public static final Item BUHUTUI = new BuHuTui();
     public static final Item BUTOUKUI = new BuTouKui();
     // UNCOMMON
+    public static final Item LILIANGYAODAI = new LiLiangYaoDai();
     // RARE
     public static final Item FANJIA = new FanShangCiJia();
 }
