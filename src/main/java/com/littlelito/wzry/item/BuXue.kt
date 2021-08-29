@@ -47,7 +47,7 @@ class BuXue(
         builder.put(
             EntityAttributes.GENERIC_MOVEMENT_SPEED, EntityAttributeModifier(
                 uUID, "Armor movement speed",
-                (3).toDouble(), EntityAttributeModifier.Operation.ADDITION
+                (0.02).toDouble(), EntityAttributeModifier.Operation.ADDITION
             )
         )
 

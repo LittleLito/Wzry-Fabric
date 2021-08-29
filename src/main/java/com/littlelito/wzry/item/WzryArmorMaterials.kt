@@ -51,6 +51,17 @@ class WzryArmorMaterials {
         0F
     )
     // UNCOMMON
+    val DIKANGZHIXUE = WzryArmorMaterial(
+        "di_kang_zhi_xue",
+        EquipmentSlot.FEET,
+        1000,
+        110,
+        12,
+        SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+        4F,
+        Items.LEATHER,
+        0F
+    )
     val LILIANGYAODAI = WzryArmorMaterial(
         "li_liang_yao_dai",
         EquipmentSlot.LEGS,

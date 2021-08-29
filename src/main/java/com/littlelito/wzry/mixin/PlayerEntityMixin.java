@@ -42,7 +42,6 @@ import java.util.UUID;
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityAccess {
     public float healthSucking = 0F;
-    public float penetration = 0F;
     boolean EQUIPED = false;
     UUID uuid;
     float lastIncrease;

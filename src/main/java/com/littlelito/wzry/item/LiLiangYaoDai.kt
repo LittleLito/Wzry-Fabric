@@ -70,6 +70,6 @@ class LiLiangYaoDai(
         tooltip: MutableList<Text>,
         context: TooltipContext?
     ) {
-        tooltip.add(TranslatableText("item.wzry.liliangyaodai.tooltip.properties"))
+        tooltip.add(TranslatableText("item.wzry.buxue.tooltip.properties"))
     }
 }
