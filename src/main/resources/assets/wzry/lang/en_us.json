@@ -60,6 +60,9 @@
   "item.wzry.butoukui": "BuTouKui",
   "item.wzry.buxue": "BuXue",
 
+  "item.wzry.dikangzhixue": "DiKangZhiXUe",
+  "item.wzry.dikangzhixue.tooltip.description": "-35% controlled duration",
+
   "item.wzry.liliangyaodai": "LiLiangYaoDai",
   "item.wzry.liliangyaodai.tooltip.properties": "+10 max health",
 

@@ -1,0 +1,27 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "X  ",
+    "WOD"
+  ],
+  "key": {
+    "W": {
+      "item": "wzry:buxue"
+    },
+    "X": {
+      "tag": "wzry:leather_armors"
+    },
+    "O": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "D": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "wzry:dikangzhixue",
+    "count": 1
+  }
+}

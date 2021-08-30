@@ -60,6 +60,9 @@
   "item.wzry.butoukui": "布头盔",
   "item.wzry.buxue": "布靴",
 
+  "item.wzry.dikangzhixue": "抵抗之靴",
+  "item.wzry.dikangzhixue.tooltip.description": "-35%受控时长",
+
   "item.wzry.liliangyaodai": "力量腰带",
   "item.wzry.liliangyaodai.tooltip.properties": "+10最大生命",
 
