@@ -37,7 +37,7 @@
 
   "item.wzry.wujinzhanren": "WuJinZhanRen",
   "item.wzry.wujinzhanren.tooltip.properties": "+20% Critical hit rate",
-  "item.wzry.wujinzhanren.tooltip.description": "Critical hit effect increased by 40%",
+  "item.wzry.wujinzhanren.tooltip.description": "+40% Critical hit effect",
 
   "item.wzry.anyingzhanfu": "AnYingZhanFu",
   "item.wzry.anyingzhanfu.tooltip.properties": "+5 max health",
@@ -63,10 +63,22 @@
   "item.wzry.dikangzhixue": "DiKangZhiXUe",
   "item.wzry.dikangzhixue.tooltip.description": "-35% controlled duration",
 
+  "item.wzry.baolizhixue": "BaoLiZhiXue",
+  "item.wzry.baolizhixue.tooltip.properties1": "+10% Critical hit rate",
+  "item.wzry.baolizhixue.tooltip.description1": "+10% Critical hit effect",
+  "item.wzry.baolizhixue.tooltip.description2": "Reduce critical damage taken by 30%",
+
   "item.wzry.liliangyaodai": "LiLiangYaoDai",
   "item.wzry.liliangyaodai.tooltip.properties": "+10 max health",
 
   "item.wzry.fanjia": "FanShangCiJia",
   "item.wzry.fanjia.tooltip.description1": "Return 25% of the damage to the attacker",
-  "item.wzry.fanjia.tooltip.description2": "Return damage of 10% maxHP to the attacker if one damage is greater than 20% maxHP"
+  "item.wzry.fanjia.tooltip.description2": "Return damage of 10% maxHP to the attacker if one damage is greater than 20% maxHP",
+
+
+
+
+
+  "effect.wzry.dizziness": "Dizziness"
+
 }

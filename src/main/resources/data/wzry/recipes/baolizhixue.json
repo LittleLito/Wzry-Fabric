@@ -1,0 +1,27 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "X  ",
+    "WOD"
+  ],
+  "key": {
+    "W": {
+      "item": "wzry:buxue"
+    },
+    "X": {
+      "tag": "wzry:bojiquantao"
+    },
+    "O": {
+      "item": "minecraft:redstone"
+    },
+    "D": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "wzry:baolizhixue",
+    "count": 1
+  }
+}

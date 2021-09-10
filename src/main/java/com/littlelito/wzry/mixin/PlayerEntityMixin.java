@@ -1,6 +1,7 @@
 package com.littlelito.wzry.mixin;
 
 import com.littlelito.wzry.access.PlayerEntityAccess;
+import com.littlelito.wzry.entity.attribute.WzryAttributes;
 import com.littlelito.wzry.item.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -163,6 +164,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
      */
     @Overwrite
     public void attack(Entity target) {
+        boolean crit = false;
         boolean JINGZHUN = false;
         String CANFEI = "";
         boolean POBAI = false;
@@ -171,9 +173,9 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
         if (target.isAttackable()) {
             if (!target.handleAttack(this)) {
-                float f = (float)this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                float f = (float) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+                float critRate = (float) this.getAttributeValue(WzryAttributes.GENERIC_CRIT_RATE);
 
-                float critRate = 0F;
                 float critEffect = 2.0F;
                 healthSucking = 0F;
 
@@ -214,12 +216,20 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                     }
 
                 }
+                for (ItemStack itemStack: getArmorItems()) {
+                    if (itemStack.getItem() instanceof BaoLiZhiXue) {
+                        critRate += 0.1;
+                        critEffect += 0.1;
+                    }
+                }
                 // crit
                 if (critRate > Math.random()) {
+                    crit = true;
                     f *= critEffect;
                 }
-                // CANFEI
+
                 if (target instanceof LivingEntity) {
+                    // CANFEI
                     switch (CANFEI) {
                         case "":
                         case "RiMian": {
@@ -233,10 +243,15 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                             }
                         }
                     }
+                    // BAOZAO
+                    if (((LivingEntity) target).getEquippedStack(EquipmentSlot.FEET).getItem() instanceof BaoLiZhiXue && crit) {
+                        f *= 0.7;
+                    }
                 }
                 // POBAI
                 if (POBAI) {
-                    f = new MoShi().passiveSkill(f, target);
+                    float i = new MoShi().passiveSkill(f, target);
+                    target.damage(DamageSource.player((PlayerEntity) (Object) this), i);
                 }
 
                 float h;

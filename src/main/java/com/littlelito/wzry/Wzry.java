@@ -10,5 +10,6 @@ public class Wzry implements ModInitializer {
         System.out.println("Hello, Wzry World!");
         new ItemRegister().register();
         new EventRegister().register();
+        //new EffectRegister().register();
     }
 }

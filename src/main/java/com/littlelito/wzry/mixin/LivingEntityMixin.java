@@ -94,6 +94,7 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
     }
     /**
      * @author Bugjang
+     * @reason no reason
      */
     @Overwrite
     public boolean addStatusEffect(StatusEffectInstance effect) {
