@@ -2,6 +2,7 @@ package com.littlelito.wzry.item
 
 import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
+import com.littlelito.wzry.entity.attribute.WzryAttributes
 import net.minecraft.block.DispenserBlock
 import net.minecraft.client.item.TooltipContext
 import net.minecraft.entity.EquipmentSlot
@@ -54,6 +55,18 @@ class BaoLiZhiXue(
             EntityAttributes.GENERIC_MOVEMENT_SPEED, EntityAttributeModifier(
                 uUID, "Armor movement speed",
                 (0.01).toDouble(), EntityAttributeModifier.Operation.ADDITION
+            )
+        )
+        builder.put(
+            WzryAttributes.GENERIC_CRIT_RATE, EntityAttributeModifier(
+                uUID, "Armor crit rate",
+                (0.1).toDouble(), EntityAttributeModifier.Operation.ADDITION
+            )
+        )
+        builder.put(
+            WzryAttributes.GENERIC_CRIT_EFFECT, EntityAttributeModifier(
+                uUID, "Armor crit effect",
+                (0.1).toDouble(), EntityAttributeModifier.Operation.ADDITION
             )
         )
 

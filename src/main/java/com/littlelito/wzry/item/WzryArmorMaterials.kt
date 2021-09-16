@@ -84,6 +84,17 @@ class WzryArmorMaterials {
         Items.IRON_BLOCK,
         0F
     )
+    val SHOUHUZHEZHIKAI = WzryArmorMaterial(
+        "shou_hu_zhe_zhi_kai",
+        EquipmentSlot.CHEST,
+        1000,
+        210,
+        12,
+        SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+        4F,
+        Items.IRON_BLOCK,
+        0F
+    )
     val JINJINDELILIANG = WzryArmorMaterial(
         "jin_jin_de_li_liang",
         EquipmentSlot.HEAD,

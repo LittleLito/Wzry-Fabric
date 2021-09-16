@@ -4,9 +4,11 @@ import com.littlelito.wzry.access.LivingEntityAccess;
 import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.client.ClientWzry;
 import com.littlelito.wzry.data.LivingEntityData;
+import com.littlelito.wzry.entity.attribute.WzryAttributes;
 import com.littlelito.wzry.item.*;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.entity.*;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -91,6 +93,14 @@ public abstract class LivingEntityMixin extends Entity implements LivingEntityAc
             this.data.health = a;
         }
         this.data.age += 1;
+    }
+    /**
+     * @author Bugjang
+     * @reason reason
+     */
+    @Overwrite
+    public static DefaultAttributeContainer.Builder createLivingAttributes() {
+        return DefaultAttributeContainer.builder().add(EntityAttributes.GENERIC_MAX_HEALTH).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE).add(EntityAttributes.GENERIC_MOVEMENT_SPEED).add(EntityAttributes.GENERIC_ARMOR).add(EntityAttributes.GENERIC_ARMOR_TOUGHNESS).add(WzryAttributes.GENERIC_CRIT_RATE).add(WzryAttributes.GENERIC_CRIT_EFFECT).add(WzryAttributes.GENERIC_HEALTH_SUCKING);
     }
     /**
      * @author Bugjang

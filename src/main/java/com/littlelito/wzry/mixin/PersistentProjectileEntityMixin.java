@@ -44,28 +44,6 @@ public abstract class PersistentProjectileEntityMixin extends Entity {
         super(type, world);
     }
 
-    @Shadow protected abstract SoundEvent getHitSound();
-
-    /*protected PersistentProjectileEntityMixin(EntityType<? extends PersistentProjectileEntity> type, LivingEntity owner, World world) {
-        this(type, owner.getX(), owner.getEyeY() - 0.10000000149011612D, owner.getZ(), world);
-        this.setOwner(owner);
-        if (owner instanceof PlayerEntity) {
-            this.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
-        }
-    }
-
-    public PersistentProjectileEntityMixin(EntityType<? extends PersistentProjectileEntity> type, double x, double y, double z, World world) {
-        this(type, world);
-        this.setPosition(x, y, z);
-    }
-
-    public PersistentProjectileEntityMixin(EntityType<? extends PersistentProjectileEntity> type, World world) {
-        super(type, world);
-        this.pickupType = PersistentProjectileEntity.PickupPermission.DISALLOWED;
-        this.damage = 2.0D;
-        this.sound = this.getHitSound();
-    }*/
-
     @Shadow public abstract byte getPierceLevel();
 
     @Shadow private IntOpenHashSet piercedEntities;

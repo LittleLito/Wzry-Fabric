@@ -68,6 +68,9 @@
   "item.wzry.liliangyaodai": "力量腰带",
   "item.wzry.liliangyaodai.tooltip.properties": "+10最大生命",
 
+  "item.wzry.shouhuzhezhikai": "守护者之铠",
+  "item.wzry.shouhuzhezhikai.tooltip.description": "受击后减少攻击者10%攻速持续4秒",
+
   "item.wzry.fanjia": "反伤刺甲",
   "item.wzry.fanjia.tooltip.description1": "将受到伤害的25%回敬给攻击者",
   "item.wzry.fanjia.tooltip.description2": "如果一次伤害大于最大生命值20%，则会对攻击者造成最大生命值10%的伤害",

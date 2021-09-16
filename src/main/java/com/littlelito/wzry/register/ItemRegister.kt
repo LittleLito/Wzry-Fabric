@@ -90,6 +90,9 @@ class ItemRegister {
         Registry.register(Registry.ITEM,
             Identifier("wzry", "liliangyaodai"),
             WzryItems.LILIANGYAODAI)
+        Registry.register(Registry.ITEM,
+            Identifier("wzry", "shouhuzhezhikai"),
+            WzryItems.SHOUHUZHEZHIKAI)
         // RARE
         Registry.register(Registry.ITEM,
             Identifier("wzry", "fanjia"),

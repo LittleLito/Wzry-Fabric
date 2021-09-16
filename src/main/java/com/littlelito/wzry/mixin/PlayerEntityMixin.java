@@ -2,6 +2,7 @@ package com.littlelito.wzry.mixin;
 
 import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.entity.attribute.WzryAttributes;
+import com.littlelito.wzry.entity.effect.WzryEffects;
 import com.littlelito.wzry.item.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -42,7 +43,7 @@ import java.util.UUID;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityAccess {
-    public float healthSucking = 0F;
+    public float healthSucking;
     boolean EQUIPED = false;
     UUID uuid;
     float lastIncrease;
@@ -66,8 +67,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
     @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
     @Shadow public int experienceLevel;
-
-    @Shadow public int experiencePickUpDelay;
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
@@ -140,6 +139,10 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
         }
 
         attackSpeed = attackSpeed * (attackSpeedPercentage + 1);
+        if (this.hasStatusEffect(StatusEffects.MINING_FATIGUE)) {
+            int a = Objects.requireNonNull(this.getStatusEffect(StatusEffects.MINING_FATIGUE)).getAmplifier();
+            attackSpeed *= 1 - ((float) a / 10);
+        }
         return (float)(1.0D / attackSpeed * 20.0D);
     }
 
@@ -164,6 +167,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
      */
     @Overwrite
     public void attack(Entity target) {
+        this.addStatusEffect(new StatusEffectInstance(WzryEffects.DIZZINESS, 60, 0));
         boolean crit = false;
         boolean JINGZHUN = false;
         String CANFEI = "";
@@ -175,9 +179,8 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
             if (!target.handleAttack(this)) {
                 float f = (float) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
                 float critRate = (float) this.getAttributeValue(WzryAttributes.GENERIC_CRIT_RATE);
-
-                float critEffect = 2.0F;
-                healthSucking = 0F;
+                float critEffect = (float) this.getAttributeValue(WzryAttributes.GENERIC_CRIT_EFFECT);
+                healthSucking = (float) this.getAttributeValue(WzryAttributes.GENERIC_HEALTH_SUCKING);
 
                 for (ItemStack itemStack: getHotBar()) {
                     Item item = itemStack.getItem();
@@ -215,12 +218,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                         }
                     }
 
-                }
-                for (ItemStack itemStack: getArmorItems()) {
-                    if (itemStack.getItem() instanceof BaoLiZhiXue) {
-                        critRate += 0.1;
-                        critEffect += 0.1;
-                    }
                 }
                 // crit
                 if (critRate > Math.random()) {
@@ -446,6 +443,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
                 Entity attacker = source.getAttacker();
                 if (attacker instanceof LivingEntity) {
+                    // jingji
                     if (JINGJI) {
                         attacker.damage(DamageSource.thorns(this), amount * 0.25F);
                         if (amount > this.getMaxHealth() * 0.2) {
@@ -455,6 +453,10 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                     // health sucking
                     if (attacker instanceof PlayerEntity) {
                         ((PlayerEntity) attacker).setHealth(((PlayerEntity) attacker).getHealth() + ((PlayerEntityAccess) attacker).getHealthSucking() * amount);
+                    }
+                    // hantie
+                    if (this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof ShouHuZheZhiKai) {
+                        ((LivingEntity) attacker).addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 80, 0));
                     }
                 }
 

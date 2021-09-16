@@ -60,6 +60,7 @@ public class WzryItems {
     public static final Item DIKANGZHIXUE = new DiKangZhiXue();
     public static final Item BAOLIZHIXUE = new BaoLiZhiXue();
     public static final Item LILIANGYAODAI = new LiLiangYaoDai();
+    public static final Item SHOUHUZHEZHIKAI = new ShouHuZheZhiKai();
     // RARE
     public static final Item FANJIA = new FanShangCiJia();
 }
