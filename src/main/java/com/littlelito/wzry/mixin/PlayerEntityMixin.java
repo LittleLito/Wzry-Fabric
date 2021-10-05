@@ -2,7 +2,6 @@ package com.littlelito.wzry.mixin;
 
 import com.littlelito.wzry.access.PlayerEntityAccess;
 import com.littlelito.wzry.entity.attribute.WzryAttributes;
-import com.littlelito.wzry.entity.effect.WzryEffects;
 import com.littlelito.wzry.item.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
@@ -43,6 +42,8 @@ import java.util.UUID;
 
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEntityAccess {
+    public boolean isBlue;
+
     public float healthSucking;
     boolean EQUIPED = false;
     UUID uuid;
@@ -70,6 +71,7 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
         super(entityType, world);
+        this.isBlue = true;
     }
     @Inject(method = "tick", at = @At("HEAD"))
     public void tick(CallbackInfo info) {
@@ -167,7 +169,6 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
      */
     @Overwrite
     public void attack(Entity target) {
-        this.addStatusEffect(new StatusEffectInstance(WzryEffects.DIZZINESS, 60, 0));
         boolean crit = false;
         boolean JINGZHUN = false;
         String CANFEI = "";
@@ -458,6 +459,11 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
                     if (this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof ShouHuZheZhiKai) {
                         ((LivingEntity) attacker).addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 80, 0));
                     }
+                    if (this.getEquippedStack(EquipmentSlot.CHEST).getItem() instanceof BuXiangZhengZhao) {
+                        ((LivingEntity) attacker).addStatusEffect(new StatusEffectInstance(StatusEffects.MINING_FATIGUE, 80, 2));
+                        ((LivingEntity) attacker).addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 80, 1));
+                    }
+
                 }
 
                 this.getDamageTracker().onDamage(source, h, amount);
@@ -481,9 +487,13 @@ public abstract class PlayerEntityMixin extends LivingEntity implements PlayerEn
 
     @Override
     public float getHealthSucking() { return this.healthSucking; }
+    @Override
+    public void setHealthSucking(float value) { this.healthSucking = value; }
 
     @Override
-    public void setHealthSucking(float value) {this.healthSucking = value; }
+    public boolean getIsBlue() { return this.isBlue; }
+    @Override
+    public void setIsBlue(boolean value) { this.isBlue = value; }
 
 }
 

@@ -1,0 +1,27 @@
+{
+
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "L L",
+    "LWL",
+    "XOX"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "W": {
+      "item": "wzry:shouhuzhezhikai"
+    },
+    "X": {
+      "item": "minecraft:iron_ingot"
+    },
+    "O": {
+      "item": "wzry:liliangyaodai"
+    }
+  },
+  "result": {
+    "item": "wzry:buxiangzhengzhao",
+    "count": 1
+  }
+}

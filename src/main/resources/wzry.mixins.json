@@ -7,6 +7,7 @@
     "ClientPlayNetworkHandlerMixin",
     "DamageUtilMixin",
     "EntityAttributesMixin",
+    "ItemMixin",
     "LivingEntityMixin",
     "LivingEntityRendererMixin",
     "MobEntityMixin",

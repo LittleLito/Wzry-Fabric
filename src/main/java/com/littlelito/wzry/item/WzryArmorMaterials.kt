@@ -107,6 +107,17 @@ class WzryArmorMaterials {
         0F
     )
     // RARE
+    val BUXIANGZHENGZHAO = WzryArmorMaterial(
+        "bu_xiang_zheng_zhao",
+        EquipmentSlot.CHEST,
+        3000,
+        270,
+        20,
+        SoundEvents.ITEM_ARMOR_EQUIP_GENERIC,
+        5F,
+        Items.IRON_BLOCK,
+        0F
+    )
     val FANJIA = WzryArmorMaterial(
         "fan_jia",
         EquipmentSlot.CHEST,

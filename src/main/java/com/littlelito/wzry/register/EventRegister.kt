@@ -1,6 +1,7 @@
 package com.littlelito.wzry.register
 
 import com.littlelito.wzry.access.LivingEntityAccess
+import com.littlelito.wzry.access.PlayerEntityAccess
 import com.littlelito.wzry.client.ClientWzry
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents
 import net.fabricmc.fabric.api.entity.event.v1.ServerPlayerEvents.CopyFrom
@@ -23,6 +24,7 @@ class EventRegister {
         ServerPlayerEvents.COPY_FROM.register(CopyFrom { oldPlayer: ServerPlayerEntity, newPlayer: ServerPlayerEntity, alive: Boolean ->
             (newPlayer as LivingEntityAccess).lastUseMingDao = (oldPlayer as LivingEntityAccess).lastUseMingDao
             (newPlayer as LivingEntityAccess).canUseMingDao = (oldPlayer as LivingEntityAccess).canUseMingDao
+            (newPlayer as PlayerEntityAccess).isBlue = (oldPlayer as PlayerEntityAccess).isBlue
             newPlayer.data = oldPlayer.data
             ClientWzry.canUseMingDao = (newPlayer as LivingEntityAccess).canUseMingDao
         })

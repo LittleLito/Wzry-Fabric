@@ -95,6 +95,9 @@ class ItemRegister {
             WzryItems.SHOUHUZHEZHIKAI)
         // RARE
         Registry.register(Registry.ITEM,
+            Identifier("wzry", "buxiangzhengzhao"),
+            WzryItems.BUXIANGZHENGZHAO)
+        Registry.register(Registry.ITEM,
             Identifier("wzry", "fanjia"),
             WzryItems.FANJIA)
     }

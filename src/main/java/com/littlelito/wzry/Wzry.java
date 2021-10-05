@@ -1,8 +1,7 @@
 package com.littlelito.wzry;
 
-import com.littlelito.wzry.register.EffectRegister;
-import com.littlelito.wzry.register.EventRegister;
-import com.littlelito.wzry.register.ItemRegister;
+import com.littlelito.wzry.block.WzryBlockEntityTypes;
+import com.littlelito.wzry.register.*;
 import net.fabricmc.api.ModInitializer;
 
 public class Wzry implements ModInitializer {
@@ -12,5 +11,9 @@ public class Wzry implements ModInitializer {
         new ItemRegister().register();
         new EventRegister().register();
         new EffectRegister().register();
+        new CommandRegister().register();
+        new BlockRegister().register();
+
+        new WzryBlockEntityTypes().register();
     }
 }

@@ -63,13 +63,16 @@
   "item.wzry.dikangzhixue": "抵抗之靴",
   "item.wzry.dikangzhixue.tooltip.description": "-35%受控时长",
 
-  "item.wzry.baolizhixue": "暴戾",
+  "item.wzry.baolizhixue": "暴戾之靴",
 
   "item.wzry.liliangyaodai": "力量腰带",
   "item.wzry.liliangyaodai.tooltip.properties": "+10最大生命",
 
   "item.wzry.shouhuzhezhikai": "守护者之铠",
   "item.wzry.shouhuzhezhikai.tooltip.description": "受击后减少攻击者10%攻速持续4秒",
+
+  "item.wzry.buxiangzhengzhao": "不详征兆",
+  "item.wzry.buxiangzhengzhao.tooltip.description": "受击后减少攻击者30%攻速和30%移速持续4秒",
 
   "item.wzry.fanjia": "反伤刺甲",
   "item.wzry.fanjia.tooltip.description1": "将受到伤害的25%回敬给攻击者",
@@ -82,6 +85,12 @@
 
 
 
-  "effect.wzry.dizziness": "眩晕"
+  "effect.wzry.dizziness": "眩晕",
 
+
+
+
+
+  "attribute.name.generic.crit_rate": "暴击率",
+  "attribute.name.generic.crit_effect": "暴击效果"
 }

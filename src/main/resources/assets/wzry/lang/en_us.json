@@ -74,6 +74,9 @@
   "item.wzry.shouhuzhezhikai": "ShouHuZheZhiKai",
   "item.wzry.shouhuzhezhikai.tooltip.description": "Reduce the attacker's attack speed by 10% after being attacked for 4s",
 
+  "item.wzry.buxiangzhengzhao": "BuXiangZhengZhao",
+  "item.wzry.buxiangzhengzhao.tooltip.description": "Reduce the attacker's attack speed and movement speed by 30% after being attacked for 4s",
+
   "item.wzry.fanjia": "FanShangCiJia",
   "item.wzry.fanjia.tooltip.description1": "Return 25% of the damage to the attacker",
   "item.wzry.fanjia.tooltip.description2": "Return damage of 10% maxHP to the attacker if one damage is greater than 20% maxHP",
@@ -82,6 +85,12 @@
 
 
 
-  "effect.wzry.dizziness": "Dizziness"
+  "effect.wzry.dizziness": "Dizziness",
 
+
+
+
+
+  "attribute.name.generic.crit_rate": "Crit rate",
+  "attribute.name.generic.crit_effect": "Crit effect"
 }

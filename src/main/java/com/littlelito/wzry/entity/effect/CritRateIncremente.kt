@@ -5,7 +5,7 @@ import net.minecraft.entity.attribute.EntityAttributeModifier
 import net.minecraft.entity.effect.StatusEffect
 import net.minecraft.entity.effect.StatusEffectType
 
-class CritRateIncremente: StatusEffect(StatusEffectType.BENEFICIAL, 0x787686) {
+class CritRateIncremente: StatusEffect(StatusEffectType.BENEFICIAL, 0xff6f00) {
 
     override fun canApplyUpdateEffect(duration: Int, amplifier: Int): Boolean {
         return true

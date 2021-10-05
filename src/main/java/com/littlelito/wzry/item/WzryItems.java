@@ -62,5 +62,6 @@ public class WzryItems {
     public static final Item LILIANGYAODAI = new LiLiangYaoDai();
     public static final Item SHOUHUZHEZHIKAI = new ShouHuZheZhiKai();
     // RARE
+    public static final Item BUXIANGZHENGZHAO = new BuXiangZhengZhao();
     public static final Item FANJIA = new FanShangCiJia();
 }

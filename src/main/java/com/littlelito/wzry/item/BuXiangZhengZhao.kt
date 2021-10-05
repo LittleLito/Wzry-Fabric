@@ -17,8 +17,8 @@ import net.minecraft.util.Rarity
 import net.minecraft.world.World
 import java.util.*
 
-class FanShangCiJia(
-    private val material: WzryArmorMaterial = WzryArmorMaterials().FANJIA,
+class BuXiangZhengZhao(
+    private val material: WzryArmorMaterial = WzryArmorMaterials().BUXIANGZHENGZHAO,
     private val slot: EquipmentSlot = EquipmentSlot.CHEST,
     val settings: Settings = Settings().rarity(Rarity.RARE).group(WzryItems.DEFEND_GROUP)
 ): ArmorItem(
@@ -51,9 +51,9 @@ class FanShangCiJia(
             )
         )
         builder.put(
-            EntityAttributes.GENERIC_ATTACK_DAMAGE, EntityAttributeModifier(
-                uUID, "Armor attack",
-                (3).toDouble(), EntityAttributeModifier.Operation.ADDITION
+            EntityAttributes.GENERIC_MAX_HEALTH, EntityAttributeModifier(
+                uUID, "Armor max health",
+                (12).toDouble(), EntityAttributeModifier.Operation.ADDITION
             )
         )
 
@@ -66,8 +66,7 @@ class FanShangCiJia(
         tooltip: MutableList<Text>,
         context: TooltipContext?
     ) {
-        tooltip.add(TranslatableText("item.wzry.fanjia.tooltip.description1").formatted(Formatting.ITALIC, Formatting.GRAY))
-        tooltip.add(TranslatableText("item.wzry.fanjia.tooltip.description2").formatted(Formatting.ITALIC, Formatting.GRAY))
+        tooltip.add(TranslatableText("item.wzry.buxiangzhengzhao.tooltip.description").formatted(Formatting.ITALIC, Formatting.GRAY))
     }
 
     override fun getAttributeModifiers(slot: EquipmentSlot): Multimap<EntityAttribute, EntityAttributeModifier> {
