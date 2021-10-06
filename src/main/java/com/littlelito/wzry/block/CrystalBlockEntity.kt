@@ -24,11 +24,6 @@ abstract class CrystalBlockEntity(type: BlockEntityType<*>, val isBlue: Boolean)
             for (blockPos in BlockPos.iterateOutwards(this.pos, 10, 10, 10)) {
                 val player = world!!.getClosestPlayer(blockPos.x.toDouble(), blockPos.y.toDouble(), blockPos.z.toDouble(), 1.0, true)
 
-                if (player != null && player is ServerPlayerEntity){
-                    println("yeal")
-                    println((player as PlayerEntityAccess).isBlue)
-                    println(this.isBlue)
-                }
                 if (player != null && player is ServerPlayerEntity && ((player as PlayerEntityAccess).isBlue != this.isBlue)) {
                     val effect = if (this.isBlue) WzryEffects.CRYSTAL_TARGET_BLUE else WzryEffects.CRYSTAL_TARGET_RED
                     player.addStatusEffect(StatusEffectInstance(effect, 2, 0, true, true))
@@ -39,7 +34,10 @@ abstract class CrystalBlockEntity(type: BlockEntityType<*>, val isBlue: Boolean)
                         if (!player.hasStatusEffect(WzryEffects.CRYSTAL_RESISTANCE)){
                             (player as LivingEntityAccess).data.damageAmount *= 1.2F
                             player.damage(DamageSource.LAVA, (player as LivingEntityAccess).data.damageAmount)
-                            player.addStatusEffect(StatusEffectInstance(WzryEffects.CRYSTAL_RESISTANCE, 40, 0, false, true))
+                            player.addStatusEffect(StatusEffectInstance(WzryEffects.CRYSTAL_RESISTANCE, 40, 0, false, false))
+                        }
+                        if (!currentPlayerList.contains(player)) {
+                            (player as LivingEntityAccess).data.damageAmount = 3.0F
                         }
                     } else {
                         (player as LivingEntityAccess).data.damageAmount = 3.0F
